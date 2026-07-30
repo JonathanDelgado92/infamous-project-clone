@@ -12,7 +12,6 @@ export function NewsletterSection() {
 
   return (
     <section className="newsletter-section section-padding scroll-trigger animate--slide-in" aria-labelledby="newsletter-title">
-      <img className="newsletter-section__reference" src="/images/story/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png" alt="Reference visual" loading="lazy" />
       <div className="newsletter-section__overlay" />
       <div className="newsletter-section__content">
         <h2 id="newsletter-title">JOIN THE SONDER CIRCLE</h2>

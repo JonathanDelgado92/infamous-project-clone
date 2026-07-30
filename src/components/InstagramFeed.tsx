@@ -15,7 +15,9 @@ export function InstagramFeed() {
       <h2 id="instagram-title" className="scroll-trigger animate--slide-in">FOLLOW US ON INSTAGRAM</h2>
       <div className="instagram-section__grid">
         {images.map((image, index) => (
-          <img className="scroll-trigger animate--fade-in" style={{ '--animation-order': index } as CSSProperties} key={image} src={image} alt="Reference visual" loading="lazy" />
+          <div className="instagram-section__tile scroll-trigger animate--fade-in" style={{ '--animation-order': index } as CSSProperties} key={image}>
+            <img src={image} alt="Reference visual" loading="lazy" />
+          </div>
         ))}
       </div>
     </section>
