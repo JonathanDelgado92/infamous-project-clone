@@ -43,7 +43,7 @@ export function SiteHeader() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const ctx = gsap.context(() => {
       const layers = drawer.querySelectorAll('.menu-drawer__layer')
-      const menuItems = drawer.querySelectorAll('.menu-drawer__nav a, .menu-drawer__nav span')
+      const menuItems = drawer.querySelectorAll('.menu-drawer__nav > a')
 
       if (!hasAnimated.current) {
         gsap.set(drawer, { display: menuOpen ? 'block' : 'none', autoAlpha: menuOpen ? 1 : 0 })
@@ -85,7 +85,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <button className="icon-button" aria-label="Menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><span className="hamburger" /></button>
+      <button className={`icon-button menu-trigger${menuOpen ? ' menu-trigger--hidden' : ''}`} aria-label="Menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><span className="hamburger" /></button>
       <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
         <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
@@ -94,19 +94,15 @@ export function SiteHeader() {
       </div>
 
       <div ref={backdropRef} className="drawer-backdrop" onClick={() => setMenuOpen(false)} />
-      <aside ref={drawerRef} className="menu-drawer" aria-hidden={!menuOpen} aria-label="Main navigation">
+      <aside ref={drawerRef} className="menu-drawer" style={{ backgroundColor: '#050505' }} aria-hidden={!menuOpen} aria-label="Main navigation">
         <div className="menu-drawer__layer menu-drawer__layer--first" aria-hidden="true" />
         <div className="menu-drawer__layer menu-drawer__layer--second" aria-hidden="true" />
         <div className="menu-drawer__layer menu-drawer__layer--final" aria-hidden="true" />
         <div className="menu-drawer__content">
           <button ref={closeButtonRef} className="drawer-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>&times;</button>
-          <p className="menu-drawer__eyebrow">INFAMOUS PROJECT / NAVIGATION</p>
           <nav className="menu-drawer__nav">
             {menuLinks.map(([href, label], index) => <Link key={href} href={href} onClick={() => setMenuOpen(false)}><span>0{index + 1}</span>{label}</Link>)}
-            <span className="disabled-link"><span>04</span>Log in</span>
-            <a href="https://www.instagram.com/infamousproject/" target="_blank" rel="noreferrer"><span>05</span>Instagram</a>
           </nav>
-          <p className="menu-drawer__footer">NOT MADE FOR HYPE. MADE FOR LEGACY.</p>
         </div>
       </aside>
 
