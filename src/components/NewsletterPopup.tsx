@@ -1,12 +1,16 @@
 'use client'
 
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useCallback, useEffect, useState } from 'react'
 
 const DAY = 86_400_000
 
 export function NewsletterPopup() {
   const [open, setOpen] = useState(false)
   const [sent, setSent] = useState(false)
+  const dismiss = useCallback(() => {
+    setOpen(false)
+    localStorage.setItem('infamous-newsletter-dismissed-at', String(Date.now()))
+  }, [])
   useEffect(() => {
     const dismissedAt = Number(localStorage.getItem('infamous-newsletter-dismissed-at') || 0)
     const timer = window.setTimeout(() => { if (Date.now() - dismissedAt >= DAY) setOpen(true) }, 5000)
@@ -16,8 +20,7 @@ export function NewsletterPopup() {
     const close = (event: KeyboardEvent) => { if (event.key === 'Escape') dismiss() }
     window.addEventListener('keydown', close)
     return () => window.removeEventListener('keydown', close)
-  })
-  function dismiss() { setOpen(false); localStorage.setItem('infamous-newsletter-dismissed-at', String(Date.now())) }
+  }, [dismiss])
   function submit(event: FormEvent) { event.preventDefault(); setSent(true) }
   if (!open) return null
   return (
