@@ -2,7 +2,7 @@ export function ImageWithText() {
   return (
     <div className="shopify-section section">
       <div className="gradient color-scheme-2" style={{ padding: '36px 0' }}>
-        <div className="page-width" style={{ padding: '0 5rem' }}>
+        <div className="page-width content-shell">
           <div className="scroll-trigger animate--slide-in image-with-text image-with-text--no-overlap isolate" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div
               className="image-with-text__media image-with-text__media--adapt global-media-settings background-transparent"
