@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon'
+import type { Locale } from '@/lib/catalog'
+import { usePathname } from 'next/navigation'
 
 const menuLinks = [
   ['/', 'Home'],
@@ -11,7 +13,11 @@ const menuLinks = [
   ['/pages/contact', 'Contact'],
 ]
 
-export function SiteHeader() {
+export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
+  const pathname = usePathname()
+  const copy = locale === 'es' ? { home: 'Inicio', catalog: 'Catálogo', contact: 'Contacto', search: 'Buscar', switchLabel: 'English' } : { home: 'Home', catalog: 'Catalog', contact: 'Contact', search: 'Search', switchLabel: 'Español' }
+  const otherLocale: Locale = locale === 'en' ? 'es' : 'en'
+  const localizedPath = pathname.replace(/^\/(en|es)(?=\/|$)/, '') || ''
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -92,9 +98,10 @@ export function SiteHeader() {
       <button className="icon-button menu-trigger" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
         <MenuToggleIcon open={menuOpen} className="menu-toggle-icon" aria-hidden="true" />
       </button>
-      <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
+      <Link href={`/${locale}`} className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
-        <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
+        <Link className="language-switch" href={`/${otherLocale}${localizedPath}`} aria-label={`Switch language to ${copy.switchLabel}`}>{copy.switchLabel}</Link>
+        <button className="icon-button search-icon" aria-label={copy.search} onClick={() => setSearchOpen(true)} />
         <span className="icon-button account-icon small-hide" aria-label="Log in" />
         <Link href="/cart" className="icon-button cart-icon" aria-label="Cart" />
       </div>
@@ -106,7 +113,7 @@ export function SiteHeader() {
         <div className="menu-drawer__layer menu-drawer__layer--final" aria-hidden="true" />
         <div className="menu-drawer__content">
           <nav className="menu-drawer__nav">
-            {menuLinks.map(([href, label], index) => <Link key={href} href={href} onClick={() => setMenuOpen(false)}><span>0{index + 1}</span>{label}</Link>)}
+            {menuLinks.map(([href], index) => <Link key={href} href={href === '/' ? `/${locale}` : `/${locale}${href}`} onClick={() => setMenuOpen(false)}><span>0{index + 1}</span>{[copy.home, copy.catalog, copy.contact][index]}</Link>)}
           </nav>
         </div>
       </aside>

@@ -1,42 +1,5 @@
-import { AnnouncementBar } from '@/components/AnnouncementBar'
-import { CoreStories } from '@/components/CoreStories'
-import { FeaturedCollection } from '@/components/FeaturedCollection'
-import { ImageBanner } from '@/components/ImageBanner'
-import { ImageBannerTwo } from '@/components/ImageBannerTwo'
-import { ImageWithText } from '@/components/ImageWithText'
-import { InstagramFeed } from '@/components/InstagramFeed'
-import { LookbookSection } from '@/components/LookbookSection'
-import { MarqueeSection } from '@/components/MarqueeSection'
-import { NewsletterPopup } from '@/components/NewsletterPopup'
-import { NewsletterSection } from '@/components/NewsletterSection'
-import { ScrollObserver } from '@/components/ScrollObserver'
-import { SiteFooter } from '@/components/SiteFooter'
-import { SiteHeader } from '@/components/SiteHeader'
-import { StoppableVideos } from '@/components/StoppableVideos'
-import { TestimonialSlider } from '@/components/TestimonialSlider'
+import { redirect } from 'next/navigation'
 
 export default function Home() {
-  return (
-    <>
-      <ScrollObserver />
-      <AnnouncementBar />
-      <SiteHeader />
-      <main id="MainContent">
-        <ImageBanner />
-        <MarqueeSection variant="primary" />
-        <CoreStories />
-        <FeaturedCollection />
-        <ImageWithText />
-        <StoppableVideos />
-        <TestimonialSlider />
-        <ImageBannerTwo />
-        <MarqueeSection variant="secondary" />
-        <NewsletterSection />
-        <LookbookSection />
-        <InstagramFeed />
-      </main>
-      <NewsletterPopup />
-      <SiteFooter />
-    </>
-  )
+  redirect('/en')
 }

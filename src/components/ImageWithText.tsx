@@ -32,12 +32,12 @@ export function ImageWithText() {
               <div className="image-with-text__text rte body" style={{ fontSize: '1.6rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)', margin: '1rem 0 2rem' }}>
                 <p>INFAMOUS WAS CREATED FOR THOSE WHO MOVE DIFFERENTLY. EVERY PIECE IS CRAFTED WITH PRECISION, POWER, AND PRESENCE—A REFLECTION OF INDIVIDUALITY AND EDGE. THIS ISN&apos;T JUST FASHION. IT&apos;S A STATEMENT.</p>
               </div>
-              <a
+              <Link
                 href="/pages/about"
                 className="button button--secondary"
               >
                 LEARN MORE
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -45,3 +45,4 @@ export function ImageWithText() {
     </div>
   )
 }
+import Link from 'next/link'

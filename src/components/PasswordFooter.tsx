@@ -64,10 +64,11 @@ export function PasswordFooter() {
       </div>
       <div className="password__footer-login" style={{ marginTop: '1.2rem', paddingBottom: '4rem', fontSize: '1.3rem' }}>
         Are you the store owner?{' '}
-        <a href="/admin" className="link underlined-link" style={{ color: 'inherit', textDecoration: 'underline', padding: 0, fontSize: '1.3rem', fontWeight: 400 }}>
+        <Link href="/admin" className="link underlined-link" style={{ color: 'inherit', textDecoration: 'underline', padding: 0, fontSize: '1.3rem', fontWeight: 400 }}>
           Log in here
-        </a>
+        </Link>
       </div>
     </footer>
   )
 }
+import Link from 'next/link'

@@ -1,53 +1,33 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { catalogStories, type Locale } from '@/lib/catalog'
 
-const stories = [
-  {
-    eyebrow: 'STORY 001',
-    title: 'EVERY SHADOW HIDES A STORY',
-    description: 'For those who move differently.',
-    image: '/images/shopify/core-story-1.png',
-    href: '/products/every-shadow-hides-a-story',
-    button: 'SHOP',
-  },
-  {
-    eyebrow: 'STORY 002',
-    title: 'NO MERCY FOR WEAK VISIONS',
-    description: '',
-    image: '/images/shopify/core-story-2.jpg',
-    href: '/products/no-mercy-for-weak-visions',
-    button: 'SHOP ALL',
-  },
-  {
-    eyebrow: 'STORY 003',
-    title: 'SILENT ATRACTTION',
-    description: '',
-    image: '/images/shopify/core-story-3.png',
-    href: '',
-    button: 'SHOP ALL',
-  },
-]
+export function CoreStories({ locale }: { locale: Locale }) {
+  const copy = locale === 'es'
+    ? { title: 'HISTORIAS CENTRALES', shop: 'VER HISTORIA', price: 'DESDE' }
+    : { title: 'CORE STORIES', shop: 'VIEW STORY', price: 'FROM' }
 
-export function CoreStories() {
   return (
     <section className="core-stories" aria-labelledby="core-stories-title">
-      <h2 id="core-stories-title">CORE STORIES</h2>
-      <div className="core-stories__grid">
-        {stories.map((story) => (
-          <article className="core-story" key={story.eyebrow}>
-            <img src={story.image} alt="" loading="lazy" />
-            <div className="core-story__shade" />
-            <p className="core-story__eyebrow">{story.eyebrow}</p>
-            <div className="core-story__content">
-              <h3>{story.title}</h3>
-              {story.description && <p>{story.description}</p>}
-              {story.href ? (
-                <Link className="button core-story__button" href={story.href}>{story.button}</Link>
-              ) : (
-                <span className="button core-story__button" aria-disabled="true">{story.button}</span>
-              )}
-            </div>
-          </article>
-        ))}
+      <h2 id="core-stories-title">{copy.title}</h2>
+      <div className="core-stories__grid core-stories__grid--six">
+        {catalogStories.map((story) => {
+          const content = story.content[locale]
+          return (
+            <article className="core-story" key={story.id}>
+              <Image src={story.media[0]} alt={`${story.name} ${content.category}`} fill sizes="(max-width: 749px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+              <div className="core-story__shade" />
+              <p className="core-story__eyebrow">STORY {story.id}</p>
+              <div className="core-story__content">
+                <p className="core-story__category">{content.category}</p>
+                <h3>{story.name}</h3>
+                <p>{content.cardDescription}</p>
+                <p className="core-story__price">{copy.price} {story.priceLabel}</p>
+                <Link className="button core-story__button" href={`/${locale}/products/${story.slug}`}>{copy.shop}</Link>
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 export function PasswordHeader() {
   const [open, setOpen] = useState(false)
@@ -126,9 +127,9 @@ export function PasswordHeader() {
                   </form>
                   <small className="password__footer-text" style={{ fontSize: '1.3rem', fontWeight: 400 }}>
                     Are you the store owner?{' '}
-                    <a href="/admin" className="link underlined-link" style={{ color: 'inherit', textDecoration: 'underline', padding: 0, fontSize: '1.3rem', fontWeight: 400 }}>
+                    <Link href="/admin" className="link underlined-link" style={{ color: 'inherit', textDecoration: 'underline', padding: 0, fontSize: '1.3rem', fontWeight: 400 }}>
                       Log in here
-                    </a>
+                    </Link>
                   </small>
                 </div>
               </div>
