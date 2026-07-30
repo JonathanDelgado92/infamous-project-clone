@@ -1,51 +1,52 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Creative Studio', href: '#', active: false },
-  { label: 'API Platform', href: '/dev', active: true },
-  { label: 'About Us', href: '#', active: false },
-  { label: 'Blog', href: '#', active: false },
-] as const;
+  { label: 'Colección', href: '#coleccion' },
+  { label: 'Editorial', href: '#editorial' },
+  { label: 'Categorías', href: '#categorias' },
+  { label: 'Packaging', href: '#packaging' },
+]
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="fixed top-0 z-50 h-[77px] w-full">
-      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M8 12C8 9.79 9.79 8 12 8M16 12C16 14.21 14.21 16 12 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          <span className="text-lg font-semibold text-white">KlingAI</span>
-        </Link>
-
-        {/* Navigation */}
-        <nav className="flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={cn(
-                'text-sm transition-colors',
-                link.active
-                  ? 'font-medium text-white'
-                  : 'text-white/80 hover:text-white'
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Avatar */}
-        <div className="flex items-center">
-          <div className="h-8 w-8 overflow-hidden rounded-full bg-gray-600" />
-        </div>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6 lg:px-12 transition-shadow duration-300"
+      style={{ boxShadow: scrolled ? '0 1px 30px rgba(0,0,0,0.3)' : 'none' }}
+    >
+      <a href="#" className="font-display text-lg tracking-[0.18em] uppercase text-white">
+        INFAMOUS
+      </a>
+      <nav className="hidden md:flex items-center gap-10">
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="text-[0.65rem] tracking-[0.22em] uppercase text-white/50 hover:text-white transition-colors duration-300 relative pb-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] hover:after:w-full"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <div className="flex items-center gap-3">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[0.65rem] tracking-[0.2em] uppercase text-white/50 hover:text-white transition-colors"
+        >
+          IG
+        </a>
       </div>
     </header>
-  );
+  )
 }

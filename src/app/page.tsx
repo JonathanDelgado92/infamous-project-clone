@@ -1,25 +1,42 @@
-import { Header } from '@/components/Header';
-import { HeroBanner } from '@/components/HeroBanner';
-import { FlagshipModels } from '@/components/FlagshipModels';
-import { VideoPreview } from '@/components/VideoPreview';
-import { ProductFeatures } from '@/components/ProductFeatures';
-import { ClientCases } from '@/components/ClientCases';
-import { BusinessConsultation } from '@/components/BusinessConsultation';
-import { Footer } from '@/components/Footer';
+import { AnnouncementBar } from '@/components/AnnouncementBar'
+import { CoreStories } from '@/components/CoreStories'
+import { FeaturedCollection } from '@/components/FeaturedCollection'
+import { ImageBanner } from '@/components/ImageBanner'
+import { ImageBannerTwo } from '@/components/ImageBannerTwo'
+import { ImageWithText } from '@/components/ImageWithText'
+import { InstagramFeed } from '@/components/InstagramFeed'
+import { LookbookSection } from '@/components/LookbookSection'
+import { MarqueeSection } from '@/components/MarqueeSection'
+import { NewsletterPopup } from '@/components/NewsletterPopup'
+import { NewsletterSection } from '@/components/NewsletterSection'
+import { ScrollObserver } from '@/components/ScrollObserver'
+import { SiteFooter } from '@/components/SiteFooter'
+import { SiteHeader } from '@/components/SiteHeader'
+import { StoppableVideos } from '@/components/StoppableVideos'
+import { TestimonialSlider } from '@/components/TestimonialSlider'
 
 export default function Home() {
   return (
-    <main className="h-screen overflow-auto scroll-none bg-[#0a0a0a]">
-      <div className="bg-[#0a0a0a]">
-        <Header />
-        <HeroBanner />
-        <FlagshipModels />
-        <VideoPreview />
-        <ProductFeatures />
-        <ClientCases />
-        <BusinessConsultation />
-        <Footer />
-      </div>
-    </main>
-  );
+    <>
+      <ScrollObserver />
+      <AnnouncementBar />
+      <SiteHeader />
+      <main id="MainContent">
+        <ImageBanner />
+        <MarqueeSection variant="primary" />
+        <CoreStories />
+        <FeaturedCollection />
+        <ImageWithText />
+        <StoppableVideos />
+        <TestimonialSlider />
+        <ImageBannerTwo />
+        <MarqueeSection variant="secondary" />
+        <NewsletterSection />
+        <LookbookSection />
+        <InstagramFeed />
+      </main>
+      <NewsletterPopup />
+      <SiteFooter />
+    </>
+  )
 }

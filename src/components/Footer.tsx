@@ -1,52 +1,61 @@
-import Link from 'next/link';
-
-const NAV_LINKS = [
-  { label: 'Platform Homepage', href: '/dev' },
-  { label: 'Pricing', href: '/dev/pricing' },
-  { label: 'Documentation', href: '#' },
-  { label: 'Creative Studio', href: '#' },
-  { label: 'Usage guide', href: '#' },
-  { label: 'Affiliate Program', href: '#' },
-] as const;
-
-const POLICY_LINKS = ['Privacy', 'Paid Service', 'SLA'] as const;
+import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-[#111214] px-6 py-12">
-      <div className="mx-auto max-w-[1280px]">
-        <div className="flex items-center gap-2 opacity-60">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M8 12C8 9.79 9.79 8 12 8M16 12C16 14.21 14.21 16 12 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          <span className="text-base font-semibold text-white">KlingAI</span>
+    <footer className="bg-[#1a1a1a] text-white/40 px-6 lg:px-12 py-16 lg:py-20 border-t border-white/[0.08]">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12 mb-12">
+          <div className="col-span-2 lg:col-span-1">
+            <p className="font-display text-[1.1rem] tracking-[0.18em] uppercase text-white mb-1">INFAMOUS</p>
+            <p className="font-sackers text-[0.5rem] tracking-[0.28em] uppercase text-egeo mb-3 font-normal">
+              Not made for hype. Made for legacy.
+            </p>
+            <p className="text-[0.72rem] leading-relaxed max-w-[220px]">
+              Prendas de carácter duradero. Construidas para el tiempo, no para la temporada.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-[0.55rem] tracking-[0.25em] uppercase text-white mb-4">Colección</h4>
+            <ul className="list-none space-y-2">
+              {['Camisetas', 'Gorras', 'Accesorios', 'Drop 001'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="text-[0.72rem] text-white/40 no-underline transition-colors hover:text-white">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-[0.55rem] tracking-[0.25em] uppercase text-white mb-4">Servicio</h4>
+            <ul className="list-none space-y-2">
+              {['Envíos', 'Devoluciones', 'Guía de tallas', 'Contacto'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="text-[0.72rem] text-white/40 no-underline transition-colors hover:text-white">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-[0.55rem] tracking-[0.25em] uppercase text-white mb-4">Marca</h4>
+            <ul className="list-none space-y-2">
+              {['Nuestra historia', 'Editorial', 'Instagram'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="text-[0.72rem] text-white/40 no-underline transition-colors hover:text-white">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm text-white/40 transition-colors hover:text-white/70"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-4 flex gap-6">
-          {POLICY_LINKS.map((label) => (
-            <span key={label} className="text-xs text-white/30">
-              {label}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-8 text-xs text-white/30">
-          &copy; 2024-2025 klingai.com All rights Reserved
+        <div className="border-t border-white/[0.08] pt-6 flex flex-col lg:flex-row items-center justify-between gap-4 text-[0.65rem] tracking-[0.08em]">
+          <span>© 2026 INFAMOUS PROJECT. Todos los derechos reservados.</span>
+          <span className="font-england text-accent text-[0.85rem]">Not made for hype. Made for legacy.</span>
         </div>
       </div>
     </footer>
-  );
+  )
 }
