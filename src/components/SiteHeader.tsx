@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon'
 
 const menuLinks = [
   ['/', 'Home'],
@@ -13,9 +14,9 @@ const menuLinks = [
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false)
   const drawerRef = useRef<HTMLElement>(null)
   const backdropRef = useRef<HTMLDivElement>(null)
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
   const hasAnimated = useRef(false)
 
   useEffect(() => {
@@ -32,8 +33,11 @@ export function SiteHeader() {
   }, [])
 
   useEffect(() => {
-    if (menuOpen) closeButtonRef.current?.focus()
-  }, [menuOpen])
+    const updateScrollTop = () => setShowScrollTop(window.scrollY > 560)
+    updateScrollTop()
+    window.addEventListener('scroll', updateScrollTop, { passive: true })
+    return () => window.removeEventListener('scroll', updateScrollTop)
+  }, [])
 
   useLayoutEffect(() => {
     const drawer = drawerRef.current
@@ -85,7 +89,9 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <button className={`icon-button menu-trigger${menuOpen ? ' menu-trigger--hidden' : ''}`} aria-label="Menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><span className="hamburger" /></button>
+      <button className="icon-button menu-trigger" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
+        <MenuToggleIcon open={menuOpen} className="menu-toggle-icon" aria-hidden="true" />
+      </button>
       <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
         <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
@@ -99,12 +105,13 @@ export function SiteHeader() {
         <div className="menu-drawer__layer menu-drawer__layer--second" aria-hidden="true" />
         <div className="menu-drawer__layer menu-drawer__layer--final" aria-hidden="true" />
         <div className="menu-drawer__content">
-          <button ref={closeButtonRef} className="drawer-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>&times;</button>
           <nav className="menu-drawer__nav">
             {menuLinks.map(([href, label], index) => <Link key={href} href={href} onClick={() => setMenuOpen(false)}><span>0{index + 1}</span>{label}</Link>)}
           </nav>
         </div>
       </aside>
+
+      {showScrollTop && !menuOpen && <button className="scroll-top" type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" /></svg></button>}
 
       {searchOpen && (
         <div className="search-modal" role="dialog" aria-modal="true" aria-label="Search">
