@@ -6,7 +6,8 @@ import { referenceImages } from '@/lib/store-data'
 
 const SWIPE_DISTANCE = 48
 const SWIPE_VELOCITY = 350
-const AUTOPLAY_DELAY = 4600
+// 2.4s keeps the editorial rhythm alive without rushing the image transition.
+const AUTOPLAY_DELAY = 2400
 
 function circularDistance(index: number, activeIndex: number, total: number) {
   let distance = index - activeIndex
