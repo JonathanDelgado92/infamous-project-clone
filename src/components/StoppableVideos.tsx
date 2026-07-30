@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { referenceImages } from '@/lib/store-data'
 
 const SWIPE_DISTANCE = 48
 const SWIPE_VELOCITY = 350
+const AUTOPLAY_DELAY = 4600
 
 function circularDistance(index: number, activeIndex: number, total: number) {
   let distance = index - activeIndex
@@ -18,6 +19,9 @@ export function StoppableVideos() {
   const stageRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [stageWidth, setStageWidth] = useState(360)
+  const [isHovered, setIsHovered] = useState(false)
+  const [isInteracting, setIsInteracting] = useState(false)
+  const [isInView, setIsInView] = useState(false)
   const reducedMotion = useReducedMotion()
   const total = referenceImages.length
 
@@ -32,8 +36,29 @@ export function StoppableVideos() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const stage = stageRef.current
+    if (!stage) return
+
+    const observer = new IntersectionObserver(([entry]) => setIsInView(entry.isIntersecting), { threshold: 0.35 })
+    observer.observe(stage)
+    return () => observer.disconnect()
+  }, [])
+
   const goTo = (index: number) => setActiveIndex((index + total) % total)
-  const move = (direction: -1 | 1) => goTo(activeIndex + direction)
+  const move = useCallback((direction: -1 | 1) => {
+    setActiveIndex((index) => (index + direction + total) % total)
+  }, [total])
+
+  const isAutoPlaying = isInView && !isHovered && !isInteracting && !reducedMotion
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const timer = window.setInterval(() => move(1), AUTOPLAY_DELAY)
+    return () => window.clearInterval(timer)
+  }, [isAutoPlaying, move])
+
   const compact = stageWidth < 620
   const activeWidth = Math.min(stageWidth * (compact ? 0.58 : 0.54), 660)
   const inactiveWidth = compact ? Math.max(42, Math.min(62, activeWidth * 0.3)) : 120
@@ -61,9 +86,15 @@ export function StoppableVideos() {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.12}
+          onPointerEnter={() => setIsHovered(true)}
+          onPointerLeave={() => setIsHovered(false)}
+          onFocusCapture={() => setIsInteracting(true)}
+          onBlurCapture={() => setIsInteracting(false)}
+          onDragStart={() => setIsInteracting(true)}
           onDragEnd={(_, info) => {
             if (info.offset.x <= -SWIPE_DISTANCE || info.velocity.x <= -SWIPE_VELOCITY) move(1)
             if (info.offset.x >= SWIPE_DISTANCE || info.velocity.x >= SWIPE_VELOCITY) move(-1)
+            setIsInteracting(false)
           }}
           onKeyDown={(event) => {
             if (event.key === 'ArrowLeft') {
@@ -119,14 +150,14 @@ export function StoppableVideos() {
           <button className="coverflow-carousel__arrow" type="button" aria-label="Previous image" onClick={() => move(-1)}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg>
           </button>
-          <p className="coverflow-carousel__counter" aria-live="polite">
+          <p className="coverflow-carousel__counter" aria-live={isAutoPlaying ? 'off' : 'polite'}>
             <span className="visually-hidden">Image </span>{String(activeIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
           </p>
           <button className="coverflow-carousel__arrow" type="button" aria-label="Next image" onClick={() => move(1)}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg>
           </button>
         </div>
-        <p className="coverflow-carousel__hint">DRAG OR SWIPE TO EXPLORE</p>
+        <p className="coverflow-carousel__hint">{isAutoPlaying ? 'AUTO-PLAYING · DRAG OR SWIPE TO EXPLORE' : 'DRAG OR SWIPE TO EXPLORE'}</p>
       </div>
     </section>
   )
