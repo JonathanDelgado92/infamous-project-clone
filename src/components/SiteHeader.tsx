@@ -4,14 +4,16 @@ import Link from 'next/link'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon'
-
-const menuLinks = [
-  ['/', 'Home'],
-  ['/collections/all', 'Catalog'],
-  ['/pages/contact', 'Contact'],
-]
+import { LanguageToggle } from '@/components/LanguageToggle'
+import { useLanguage } from '@/lib/language-context'
 
 export function SiteHeader() {
+  const { strings } = useLanguage()
+  const menuLinks: [string, string][] = [
+    ['/', strings.nav.home],
+    ['/collections/all', strings.nav.catalog],
+    ['/pages/contact', strings.nav.contact],
+  ]
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -94,6 +96,7 @@ export function SiteHeader() {
       </button>
       <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
+        <LanguageToggle />
         <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
         <span className="icon-button account-icon small-hide" aria-label="Log in" />
         <Link href="/cart" className="icon-button cart-icon" aria-label="Cart" />

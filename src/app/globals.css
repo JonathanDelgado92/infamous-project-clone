@@ -560,3 +560,29 @@ h1, h2, h3 { color: #fff; font-family: Oswald, Impact, sans-serif; letter-spacin
 .newsletter-section{background-image:url('/images/story/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png');background-position:center;background-size:cover;background-attachment:fixed}
 @media(hover:hover){.image-with-text__media:hover img,.lookbook__media:hover>img,.instagram-section__tile:hover img{transform:scale(1.045)}.featured-collection .product-card:hover img:first-child{transform:scale(1.045)}}
 @media(max-width:749px){.newsletter-section{background-attachment:scroll}}
+
+/* Language toggle in the header. */
+.language-toggle{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.6);font-size:1.2rem;letter-spacing:.08rem}
+.language-toggle button{padding:.2rem .3rem;background:none;border:none;color:inherit;cursor:pointer;transition:color 150ms ease-out}
+.language-toggle button.is-active{color:#fff;font-weight:700}
+.language-toggle button:hover{color:#fff}
+@media(max-width:749px){.language-toggle{font-size:1.1rem}}
+
+/* Story narrative sections inside the product detail page. */
+.story-narrative{margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(255,255,255,.14)}
+.story-narrative h2{font-size:1.6rem;letter-spacing:.1rem;margin:2.6rem 0 1rem}
+.story-narrative h2:first-child{margin-top:0}
+.story-narrative p{color:var(--muted);line-height:1.65;margin:0 0 1rem}
+.story-narrative__phrase{font-size:1.6rem;font-style:italic;color:#fff;border-left:2px solid rgba(255,255,255,.4);padding-left:1.4rem;margin:0 0 2.6rem}
+.story-narrative ul{margin:0;padding-left:1.4rem;color:var(--muted);line-height:1.65}
+.story-narrative li{margin-bottom:.6rem}
+.whatsapp-button{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;width:100%;padding:1.3rem;background:#1f9e4d;color:#fff;border:none;font-weight:700;letter-spacing:.05rem;text-decoration:none;cursor:pointer;transition:background-color 150ms ease-out}
+.whatsapp-button:hover{background:#22b656}
+.price-pending{color:var(--muted);font-style:italic}
+.story-next{display:flex;align-items:center;justify-content:space-between;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none}
+.story-next:hover{color:rgba(255,255,255,.7)}
+
+/* next/image fill requires a positioned ancestor with explicit sizing. */
+.product-thumbnails button{position:relative}
+.media-modal__frame{position:relative;width:90vw;height:90vh}
+@media(max-width:749px){.media-modal__frame{width:100vw;height:70vh}}

@@ -1,53 +1,41 @@
-import Link from 'next/link'
+'use client'
 
-const stories = [
-  {
-    eyebrow: 'STORY 001',
-    title: 'EVERY SHADOW HIDES A STORY',
-    description: 'For those who move differently.',
-    image: '/images/shopify/core-story-1.png',
-    href: '/products/every-shadow-hides-a-story',
-    button: 'SHOP',
-  },
-  {
-    eyebrow: 'STORY 002',
-    title: 'NO MERCY FOR WEAK VISIONS',
-    description: '',
-    image: '/images/shopify/core-story-2.jpg',
-    href: '/products/no-mercy-for-weak-visions',
-    button: 'SHOP ALL',
-  },
-  {
-    eyebrow: 'STORY 003',
-    title: 'SILENT ATRACTTION',
-    description: '',
-    image: '/images/shopify/core-story-3.png',
-    href: '',
-    button: 'SHOP ALL',
-  },
-]
+import Link from 'next/link'
+import Image from 'next/image'
+import { products } from '@/lib/store-data'
+import { useLanguage } from '@/lib/language-context'
 
 export function CoreStories() {
+  const { language, strings } = useLanguage()
+
   return (
     <section className="core-stories" aria-labelledby="core-stories-title">
       <h2 id="core-stories-title">CORE STORIES</h2>
       <div className="core-stories__grid">
-        {stories.map((story) => (
-          <article className="core-story" key={story.eyebrow}>
-            <img src={story.image} alt="" loading="lazy" />
-            <div className="core-story__shade" />
-            <p className="core-story__eyebrow">{story.eyebrow}</p>
-            <div className="core-story__content">
-              <h3>{story.title}</h3>
-              {story.description && <p>{story.description}</p>}
-              {story.href ? (
-                <Link className="button core-story__button" href={story.href}>{story.button}</Link>
-              ) : (
-                <span className="button core-story__button" aria-disabled="true">{story.button}</span>
-              )}
-            </div>
-          </article>
-        ))}
+        {products.map((product) => {
+          const content = product.content[language]
+          return (
+            <article className="core-story" key={product.slug}>
+              <Image
+                src={product.primaryImage}
+                alt=""
+                fill
+                sizes="(max-width: 749px) 100vw, (max-width: 989px) 50vw, 25vw"
+                style={{ objectFit: 'cover', objectPosition: 'top' }}
+                quality={78}
+              />
+              <div className="core-story__shade" />
+              <p className="core-story__eyebrow">{language === 'es' ? 'HISTORIA' : 'STORY'} {product.storyNumber}</p>
+              <div className="core-story__content">
+                <h3>{product.title}</h3>
+                <p>{content.phrase}</p>
+                <Link className="button core-story__button" href={`/products/${product.slug}`}>
+                  {product.slug === 'no-mercy-for-weak-visions' ? strings.story.shopAll : strings.story.shop}
+                </Link>
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )
