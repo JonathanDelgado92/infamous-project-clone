@@ -395,11 +395,18 @@ export const products: StoreProduct[] = [
 ]
 
 export const referenceImages = [
-  '/images/story/2BE1729C-E9E7-4D17-AE85-AD32204BC224.jpg',
-  '/images/story/54EA95E3-3503-4E18-8A98-5B8D3EB02C98.jpg',
-  '/images/story/7384EB4D-91F7-44E8-A56B-BF1336F6F162.jpg',
-  '/images/story/7715701D-9327-4728-BC7B-27DDC1749863.jpg',
+  '/images/story/E5911F41-E44A-4941-8840-F944E3A6CE76.png',
+  '/images/stories/002/69202655-B37A-4C0B-BE0B-A96CF9FF38DE.png',
+  '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png',
+  '/images/story/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg',
+  '/images/stories/005/4551CDA5-83C1-4186-98D4-C0B645ECAA53.png',
+  '/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png',
   '/images/story/AEF75A06-AF6D-4711-A1E5-AD3F5FB2BD67.jpg',
+  '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
+  '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png',
+  '/images/stories/002/441321A6-97CB-44AD-91E2-C546ED192431.jpg',
+  '/images/story/7715701D-9327-4728-BC7B-27DDC1749863.jpg',
+  '/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png',
 ]
 
 export function getNextProduct(slug: string): StoreProduct {

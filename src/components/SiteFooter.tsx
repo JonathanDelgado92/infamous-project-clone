@@ -11,7 +11,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__top page-width">
         <div><h2>{strings.footer.quickLinks}</h2><Link href="/search">Search</Link></div>
-        <div className="site-footer__brand"><p>FASHION WITHOUT LIMITS — DESIGNED FOR IMPACT</p><a href="https://www.instagram.com/infamousproject/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a></div>
+        <div className="site-footer__brand"><p>FASHION WITHOUT LIMITS — DESIGNED FOR IMPACT</p></div>
       </div>
       <div className="site-footer__bottom">
         <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer">{strings.footer.whatsapp}</a>

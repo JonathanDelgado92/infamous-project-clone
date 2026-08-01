@@ -84,7 +84,7 @@ export function StoppableVideos() {
           className="coverflow-carousel__stage"
           role="region"
           aria-roledescription="carousel"
-          aria-label="STORY 001 image carousel"
+          aria-label="Product image carousel"
           tabIndex={0}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -128,7 +128,7 @@ export function StoppableVideos() {
                 key={image}
                 className="coverflow-carousel__slide"
                 type="button"
-                aria-label={`Show STORY 001 image ${index + 1} of ${total}`}
+                aria-label={`Show Product image ${index + 1} of ${total}`}
                 aria-current={isActive ? 'true' : undefined}
                 onClick={() => goTo(index)}
                 animate={{
@@ -143,7 +143,7 @@ export function StoppableVideos() {
                 transition={transition}
                 style={{ zIndex: total - absoluteDistance }}
               >
-                <img src={image} alt={`STORY 001 editorial look ${index + 1}`} draggable="false" />
+                <img src={image} alt={`Infamous Project product ${index + 1}`} draggable="false" />
               </motion.button>
             )
           })}

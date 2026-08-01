@@ -5,7 +5,6 @@ import { ImageBanner } from '@/components/ImageBanner'
 import { ImageBannerTwo } from '@/components/ImageBannerTwo'
 import { ImageWithText } from '@/components/ImageWithText'
 import { InstagramFeed } from '@/components/InstagramFeed'
-import { LookbookSection } from '@/components/LookbookSection'
 import { MarqueeSection } from '@/components/MarqueeSection'
 import { NewsletterPopup } from '@/components/NewsletterPopup'
 import { NewsletterSection } from '@/components/NewsletterSection'
@@ -32,7 +31,6 @@ export default function Home() {
         <ImageBannerTwo />
         <MarqueeSection variant="secondary" />
         <NewsletterSection />
-        <LookbookSection />
         <InstagramFeed />
       </main>
       <NewsletterPopup />
