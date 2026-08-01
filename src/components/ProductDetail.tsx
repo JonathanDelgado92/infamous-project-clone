@@ -17,6 +17,8 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
   const activeMedia = product.media
+  const activeVariant = product.colorVariants?.find((v) => v.name === selectedColor)
+  const displayPrice = activeVariant?.price ?? product.price
 
   const jumpToColor = (color: string) => {
     setSelectedColor(color)
@@ -62,21 +64,20 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
         <p className="eyebrow">Infamous Project · {language === 'es' ? 'Historia' : 'Story'} {product.storyNumber}</p>
         <h1>{product.title}</h1>
         {product.priceConfirmed ? (
-          <p className="product-price">${product.price?.toFixed(2)} USD</p>
+          <p className="product-price">${displayPrice?.toFixed(2)} USD</p>
         ) : (
           <p className="product-price price-pending">{strings.story.pricePending}</p>
         )}
         {product.colors.length > 0 && <fieldset><legend>{strings.story.color}: <strong>{selectedColor}</strong></legend><div className="sold-options">{product.colors.map((color) => {
           const variant = product.colorVariants?.find((item) => item.name === color)
           const isSelected = selectedColor === color
-          return <button className={isSelected ? 'is-selected' : ''} key={color} type="button" aria-pressed={isSelected} onClick={() => jumpToColor(color)}>
-            {variant && <span className="color-swatch" style={{ '--swatch': variant.swatch } as CSSProperties} aria-hidden="true" />}
-            <span>{color}</span>
+          return <button className={isSelected ? 'is-selected swatch-only' : 'swatch-only'} key={color} type="button" aria-label={color} aria-pressed={isSelected} onClick={() => jumpToColor(color)} title={color}>
+            <span className="color-swatch" style={{ '--swatch': variant?.swatch ?? '#888' } as CSSProperties} aria-hidden="true" />
           </button>
         })}</div></fieldset>}
         <label className="quantity-label" htmlFor="quantity">{strings.story.quantity}</label>
         <div className="quantity"><button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity">-</button><input id="quantity" value={quantity} readOnly /><button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button></div>
-        <a className="whatsapp-button" href={buildWhatsAppLink(product, language, selectedColor || undefined)} target="_blank" rel="noreferrer">
+        <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice)} target="_blank" rel="noreferrer">
           {strings.story.buyWhatsapp}
         </a>
 

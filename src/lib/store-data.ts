@@ -22,6 +22,7 @@ export type StoreProduct = {
     name: string
     swatch: string
     media: string[]
+    price?: number
   }[]
   content: {
     es: LocalizedStoryContent
@@ -74,7 +75,7 @@ export const products: StoreProduct[] = [
     colorVariants: [
       { name: 'Black', swatch: '#171717', media: ['/images/story/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/story/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/story/2BE1729C-E9E7-4D17-AE85-AD32204BC224.jpg'] },
       { name: 'Clear', swatch: '#f2f1ea', media: ['/images/story/7715701D-9327-4728-BC7B-27DDC1749863.jpg', '/images/story/2BE1729C-E9E7-4D17-AE85-AD32204BC224.jpg'] },
-      { name: 'Acid Wash', swatch: '#a6a7a7', media: ['/images/story/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg', '/images/story/2BE1729C-E9E7-4D17-AE85-AD32204BC224.jpg'] },
+      { name: 'Acid Wash', swatch: '#a6a7a7', media: ['/images/story/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg', '/images/story/2BE1729C-E9E7-4D17-AE85-AD32204BC224.jpg'], price: 30 },
       { name: 'Steel', swatch: '#577a83', media: ['/images/story/AEF75A06-AF6D-4711-A1E5-AD3F5FB2BD67.jpg', '/images/story/54EA95E3-3503-4E18-8A98-5B8D3EB02C98.jpg', '/images/story/7384EB4D-91F7-44E8-A56B-BF1336F6F162.jpg', '/images/story/CEEE0001-EFA7-48D4-834A-A7C5884CE9C1.jpg'] },
     ],
     content: {
