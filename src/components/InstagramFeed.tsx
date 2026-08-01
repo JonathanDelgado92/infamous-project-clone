@@ -1,4 +1,7 @@
+'use client'
+
 import type { CSSProperties } from 'react'
+import { useLanguage } from '@/lib/language-context'
 
 const images = [
   '/images/story/5DD0FE54-6871-4EC6-8205-07FEDC9D8B64.png',
@@ -10,9 +13,11 @@ const images = [
 ]
 
 export function InstagramFeed() {
+  const { strings } = useLanguage()
+
   return (
     <section className="instagram-section section-padding" aria-labelledby="instagram-title">
-      <h2 id="instagram-title" className="scroll-trigger animate--slide-in">FOLLOW US ON INSTAGRAM</h2>
+      <h2 id="instagram-title" className="scroll-trigger animate--slide-in">{strings.instagram}</h2>
       <div className="instagram-section__grid">
         {images.map((image, index) => (
           <div className="instagram-section__tile scroll-trigger animate--fade-in" style={{ '--animation-order': index } as CSSProperties} key={image}>

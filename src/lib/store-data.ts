@@ -191,12 +191,16 @@ export const products: StoreProduct[] = [
     media: [
       '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png',
       '/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png',
-      '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png',
-      '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png',
       '/images/stories/003/IMG_5195.JPG',
       '/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png',
+      '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png',
+      '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png',
     ],
-    colors: [],
+    colors: ['White', 'Black'],
+    colorVariants: [
+      { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png', '/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png', '/images/stories/003/IMG_5195.JPG'] },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png', '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png', '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png'] },
+    ],
     content: {
       es: {
         phrase: 'La presencia real no persigue atención. La genera.',
@@ -305,7 +309,11 @@ export const products: StoreProduct[] = [
       '/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png',
       '/images/stories/005/CDEC5FFD-F663-47B8-9965-D0E7C47DF257.png',
     ],
-    colors: [],
+    colors: ['Grey', 'Black'],
+    colorVariants: [
+      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/005/0A10DCE9-CBDB-4C86-904E-6AE5CF99059D.png', '/images/stories/005/D3262C92-476F-496C-B32A-64944B180115.png', '/images/stories/005/EEF41790-B591-4562-933D-A37E91E3E4D6.png'] },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/005/2D2A25FB-F8FA-4E49-9A37-3B05EA520537.png', '/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png', '/images/stories/005/CDEC5FFD-F663-47B8-9965-D0E7C47DF257.png'] },
+    ],
     content: {
       es: {
         phrase: 'La disciplina no depende del clima, la comodidad ni la motivación.',
@@ -357,7 +365,11 @@ export const products: StoreProduct[] = [
       '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png',
       '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png',
     ],
-    colors: [],
+    colors: ['Beige', 'Grey'],
+    colorVariants: [
+      { name: 'Beige', swatch: '#d8cdb8', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png'] },
+      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png', '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png'] },
+    ],
     content: {
       es: {
         phrase: 'Una cultura propia no se hereda. Se construye.',

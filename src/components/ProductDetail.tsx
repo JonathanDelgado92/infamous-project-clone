@@ -16,8 +16,15 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
-  const selectedVariant = product.colorVariants?.find((variant) => variant.name === selectedColor)
-  const activeMedia = selectedVariant?.media ?? product.media
+  const activeMedia = product.media
+
+  const jumpToColor = (color: string) => {
+    setSelectedColor(color)
+    const variant = product.colorVariants?.find((item) => item.name === color)
+    const firstShot = variant?.media[0]
+    const index = firstShot ? activeMedia.indexOf(firstShot) : -1
+    setSelected(index === -1 ? 0 : index)
+  }
 
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
@@ -62,7 +69,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
         {product.colors.length > 0 && <fieldset><legend>{strings.story.color}: <strong>{selectedColor}</strong></legend><div className="sold-options">{product.colors.map((color) => {
           const variant = product.colorVariants?.find((item) => item.name === color)
           const isSelected = selectedColor === color
-          return <button className={isSelected ? 'is-selected' : ''} key={color} type="button" aria-pressed={isSelected} onClick={() => { setSelectedColor(color); setSelected(0) }}>
+          return <button className={isSelected ? 'is-selected' : ''} key={color} type="button" aria-pressed={isSelected} onClick={() => jumpToColor(color)}>
             {variant && <span className="color-swatch" style={{ '--swatch': variant.swatch } as CSSProperties} aria-hidden="true" />}
             <span>{color}</span>
           </button>

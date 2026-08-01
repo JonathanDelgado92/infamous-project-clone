@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { referenceImages } from '@/lib/store-data'
+import { useLanguage } from '@/lib/language-context'
 
 const SWIPE_DISTANCE = 48
 const SWIPE_VELOCITY = 350
@@ -17,6 +18,7 @@ function circularDistance(index: number, activeIndex: number, total: number) {
 }
 
 export function StoppableVideos() {
+  const { strings } = useLanguage()
   const stageRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [stageWidth, setStageWidth] = useState(360)
@@ -72,8 +74,8 @@ export function StoppableVideos() {
   return (
     <section className="media-stories section-padding scroll-trigger animate--slide-in" aria-labelledby="movement-title">
       <div className="section-heading">
-        <h2 id="movement-title">MOVEMENT IN FORM</h2>
-        <p>FASHION ISN&apos;T STATIC - IT MOVES, FLOWS, AND COMMANDS ATTENTION. WATCH SONDER IN MOTION - BOLD SILHOUETTES, STRUCTURED DRAPING, AND EFFORTLESS POWER, CAPTURED IN EVERY FRAME.</p>
+        <h2 id="movement-title">{strings.movement.title}</h2>
+        <p>{strings.movement.description}</p>
       </div>
 
       <div className="coverflow-carousel">
@@ -158,7 +160,7 @@ export function StoppableVideos() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg>
           </button>
         </div>
-        <p className="coverflow-carousel__hint">{isAutoPlaying ? 'AUTO-PLAYING · DRAG OR SWIPE TO EXPLORE' : 'DRAG OR SWIPE TO EXPLORE'}</p>
+        <p className="coverflow-carousel__hint">{isAutoPlaying ? strings.movement.autoplay : strings.movement.swipe}</p>
       </div>
     </section>
   )

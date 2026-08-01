@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/lib/language-context'
+
 export function ImageWithText() {
+  const { strings } = useLanguage()
+
   return (
     <div className="shopify-section section">
       <div className="gradient color-scheme-2" style={{ padding: '36px 0' }}>
@@ -24,19 +30,19 @@ export function ImageWithText() {
               style={{ padding: '0' }}
             >
               <p className="image-with-text__text--caption" style={{ fontSize: '1.2rem', letterSpacing: '0.13rem', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }}>
-                MEET THE FOUNDER
+                {strings.founder.caption}
               </p>
               <h2 className="image-with-text__heading h1" style={{ fontSize: 'calc(2.4rem + 1vw)', lineHeight: 1.1, color: '#fff', fontFamily: 'Oswald, sans-serif', fontWeight: 700, margin: '1rem 0' }}>
-                THE VISION BEHIND INFAMOUS
+                {strings.founder.title}
               </h2>
               <div className="image-with-text__text rte body" style={{ fontSize: '1.6rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)', margin: '1rem 0 2rem' }}>
-                <p>INFAMOUS WAS CREATED FOR THOSE WHO MOVE DIFFERENTLY. EVERY PIECE IS CRAFTED WITH PRECISION, POWER, AND PRESENCE—A REFLECTION OF INDIVIDUALITY AND EDGE. THIS ISN&apos;T JUST FASHION. IT&apos;S A STATEMENT.</p>
+                <p>{strings.founder.text}</p>
               </div>
               <a
                 href="/pages/about"
                 className="button button--secondary"
               >
-                LEARN MORE
+                {strings.founder.cta}
               </a>
             </div>
           </div>

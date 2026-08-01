@@ -1,13 +1,15 @@
+'use client'
+
+import { useLanguage } from '@/lib/language-context'
+
 type MarqueeSectionProps = {
   variant: 'primary' | 'secondary'
 }
 
-const PRIMARY = ['NOT MADE FOR HYPE. MADE FOR LEGACY', 'LIMITED EDITION', 'NO WEAK SH!T', 'WELCOME TO STORE']
-const SECONDARY = ['LIMITED EDITION', '☯', 'STATEMENT PIECES', '☯', 'FUTURE ICONS', '☯']
-
 export function MarqueeSection({ variant }: MarqueeSectionProps) {
-  const items = variant === 'primary' ? PRIMARY : SECONDARY
-  const repeated = Array.from({ length: 4 }, () => items).flat()
+  const { strings } = useLanguage()
+  const items = variant === 'primary' ? strings.marquee.primary : strings.marquee.secondary
+  const repeated = Array.from({ length: 4 }, () => [...items]).flat()
 
   return (
     <section className="custom-marquee" aria-label={variant === 'primary' ? 'Brand statements' : 'Collection statements'}>

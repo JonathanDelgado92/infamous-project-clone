@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/lib/language-context'
+
 export function AnnouncementBar() {
+  const { strings } = useLanguage()
+
   return (
     <div
       id="shopify-section-sections--27248049684514__announcement-bar"
@@ -10,7 +16,7 @@ export function AnnouncementBar() {
         <div className="page-width utility-bar__grid utility-bar__grid--3-col">
           <div className="announcement-bar" role="region" aria-label="Announcement">
             <p className="announcement-bar__message h5">
-              <span>LIMITED RELEASES. STORIES IN EVERY PIECE. INFAMOUS IS NOW LIVE.</span>
+              <span>{strings.announcement}</span>
             </p>
           </div>
         </div>

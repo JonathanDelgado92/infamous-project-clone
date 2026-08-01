@@ -1,15 +1,19 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { products } from '@/lib/store-data'
+import { useLanguage } from '@/lib/language-context'
 
 export function FeaturedCollection() {
+  const { strings } = useLanguage()
   const product = products[0]
 
   return (
     <section className="featured-collection section-padding" aria-labelledby="featured-title">
       <div className="section-heading scroll-trigger animate--slide-in">
-        <h2 id="featured-title">DESIGNED TO DISRUPT</h2>
-        <p>LUXURY STAPLES FOR THE MODERN DISRUPTOR. PRECISION-TAILORED PIECES THAT BREAK CONVENTION AND REDEFINE PRESENCE. THIS ISN&apos;T JUST FASHION—IT&apos;S A STATEMENT.</p>
+        <h2 id="featured-title">{strings.featured.title}</h2>
+        <p>{strings.featured.description}</p>
       </div>
       <div className="featured-collection__grid scroll-trigger animate--slide-in">
         <Link className="product-card" href={`/products/${product.slug}`}>
