@@ -16,16 +16,16 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
-  const activeMedia = product.media
+  const [isHovering, setIsHovering] = useState(false)
   const activeVariant = product.colorVariants?.find((v) => v.name === selectedColor)
+  const activeMedia = activeVariant?.media ?? product.media
   const displayPrice = activeVariant?.price ?? product.price
+  const hoverSrc = activeVariant && activeVariant.media.length > 1 ? activeVariant.media[1] : null
+  const mainSrc = isHovering && hoverSrc ? hoverSrc : activeMedia[selected]
 
   const jumpToColor = (color: string) => {
     setSelectedColor(color)
-    const variant = product.colorVariants?.find((item) => item.name === color)
-    const firstShot = variant?.media[0]
-    const index = firstShot ? activeMedia.indexOf(firstShot) : -1
-    setSelected(index === -1 ? 0 : index)
+    setSelected(0)
   }
 
   useEffect(() => {
@@ -42,9 +42,9 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   return (
     <section className="product-page page-width">
       <div className="product-gallery scroll-trigger animate--fade-in">
-        <button className="product-main-media" onClick={() => setModalOpen(true)} aria-label="Open product image">
+        <button className="product-main-media" onClick={() => setModalOpen(true)} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} aria-label="Open product image">
           <Image
-            src={activeMedia[selected]}
+            src={mainSrc}
             alt={`${product.title} ${selectedColor || 'product'} view ${selected + 1}`}
             fill
             sizes="(max-width: 749px) 100vw, 50vw"

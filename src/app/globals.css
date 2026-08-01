@@ -582,6 +582,14 @@ h1, h2, h3 { color: #fff; font-family: Oswald, Impact, sans-serif; letter-spacin
 .story-next{display:flex;align-items:center;justify-content:space-between;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none}
 .story-next:hover{color:rgba(255,255,255,.7)}
 
+/* Hover zoom on product gallery images. */
+.product-main-media{overflow:hidden}
+.product-main-media img{transition:transform 420ms cubic-bezier(.2,0,0,1)!important}
+@media(hover:hover){.product-main-media:hover img{transform:scale(1.06)!important}}
+.product-thumbnails button{overflow:hidden}
+.product-thumbnails button img{transition:transform 320ms cubic-bezier(.2,0,0,1)!important}
+@media(hover:hover){.product-thumbnails button:hover img{transform:scale(1.08)!important}}
+
 /* next/image fill requires a positioned ancestor with explicit sizing. */
 .product-thumbnails button{position:relative}
 .media-modal__frame{position:relative;width:90vw;height:90vh}
