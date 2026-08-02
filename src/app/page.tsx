@@ -11,7 +11,6 @@ import { NewsletterSection } from '@/components/NewsletterSection'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
-import { StoppableVideos } from '@/components/StoppableVideos'
 import { TestimonialSlider } from '@/components/TestimonialSlider'
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
         <CoreStories />
         <EditorialSection />
         <ImageWithText />
-        <StoppableVideos />
         <TestimonialSlider />
         <ImageBannerTwo />
         <MarqueeSection variant="secondary" />

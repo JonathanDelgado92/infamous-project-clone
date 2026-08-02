@@ -75,12 +75,6 @@ export const dictionary = {
       bodyPara1: 'En INFAMOUS PROJECT, cada pieza nace de una idea, una mentalidad y un capítulo que vale la pena contar. Cada mensaje, tela, color, estampado y detalle de confección está diseñado intencionalmente para formar parte de una narrativa más grande.',
       bodyPara2: 'Creamos para quienes se construyen en silencio, avanzan sin necesitar aprobación y llevan consigo una presencia que se vuelve imposible de ignorar.',
     },
-    movement: {
-      title: 'MOVIMIENTO EN FORMA',
-      description: 'LA MODA NO ES ESTÁTICA—SE MUEVE, FLUYE Y EXIGE ATENCIÓN. OBSERVA INFAMOUS EN MOVIMIENTO—SILUETAS AUDACES, DRAPEADO ESTRUCTURADO Y PODER SIN ESFUERZO, CAPTURADO EN CADA CUADRO.',
-      autoplay: 'REPRODUCCIÓN AUTOMÁTICA · DESLIZA PARA EXPLORAR',
-      swipe: 'DESLIZA PARA EXPLORAR',
-    },
     testimonials: {
       title: 'LO QUE DICEN',
       description: 'ESTILO REAL. IMPACTO REAL. INFAMOUS NO ES SOLO ROPA—ES UNA DECLARACIÓN.',
@@ -199,12 +193,6 @@ export const dictionary = {
       eyebrowBottom: 'THIS IS A STORY.',
       bodyPara1: 'At INFAMOUS PROJECT, every piece begins with an idea, a mindset and a chapter worth telling. Every message, fabric, color, print and construction detail is intentionally designed to become part of a larger narrative.',
       bodyPara2: 'We create for those who build in silence, move without approval and carry themselves with a presence that becomes impossible to ignore.',
-    },
-    movement: {
-      title: 'MOVEMENT IN FORM',
-      description: 'FASHION ISN\'T STATIC—IT MOVES, FLOWS, AND COMMANDS ATTENTION. WATCH INFAMOUS IN MOTION—BOLD SILHOUETTES, STRUCTURED DRAPING, AND EFFORTLESS POWER, CAPTURED IN EVERY FRAME.',
-      autoplay: 'AUTO-PLAYING · DRAG OR SWIPE TO EXPLORE',
-      swipe: 'DRAG OR SWIPE TO EXPLORE',
     },
     testimonials: {
       title: 'WHAT THEY\'RE SAYING',
