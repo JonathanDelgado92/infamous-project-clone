@@ -17,20 +17,19 @@ export function SiteHeader() {
     ['/pages/contact', strings.nav.contact],
   ]
   const [menuOpen, setMenuOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
   const drawerRef = useRef<HTMLElement>(null)
   const backdropRef = useRef<HTMLDivElement>(null)
   const hasAnimated = useRef(false)
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen || searchOpen ? 'hidden' : ''
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [menuOpen, searchOpen])
+  }, [menuOpen])
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setMenuOpen(false); setSearchOpen(false) }
+      if (event.key === 'Escape') setMenuOpen(false)
     }
     window.addEventListener('keydown', close)
     return () => window.removeEventListener('keydown', close)
@@ -100,7 +99,6 @@ export function SiteHeader() {
       <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
         <LanguageToggle />
-        <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
         <span className="icon-button account-icon small-hide" aria-label="Log in" />
         <Link href="/cart" className="icon-button cart-icon" aria-label={`Cart, ${totalUnits} items`}>
           {totalUnits > 0 && <span className="cart-icon__badge">{totalUnits}</span>}
@@ -120,17 +118,6 @@ export function SiteHeader() {
       </aside>
 
       {showScrollTop && !menuOpen && <button className="scroll-top" type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" /></svg></button>}
-
-      {searchOpen && (
-        <div className="search-modal" role="dialog" aria-modal="true" aria-label="Search">
-          <button className="search-modal__backdrop" aria-label="Close search" onClick={() => setSearchOpen(false)} />
-          <form className="search-modal__form" action="/search">
-            <label htmlFor="header-search">Search</label>
-            <div><input id="header-search" name="q" type="search" autoFocus placeholder="Search" /><button type="submit">&rarr;</button></div>
-            <button type="button" className="search-modal__close" onClick={() => setSearchOpen(false)}>Close</button>
-          </form>
-        </div>
-      )}
     </header>
   )
 }
