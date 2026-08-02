@@ -95,6 +95,7 @@ export function SiteHeader() {
     <header className="site-header">
       <button className="icon-button menu-trigger" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
         <MenuToggleIcon open={menuOpen} className="menu-toggle-icon" aria-hidden="true" />
+        <span className="menu-trigger__label" aria-hidden="true">Menu</span>
       </button>
       <Link href="/" className="site-logo"><img src="/images/infamous-logo.png" alt="Infamous Project" /></Link>
       <div className="header-actions">
