@@ -4,7 +4,7 @@ export const languages: Language[] = ['es', 'en']
 
 export const dictionary = {
   es: {
-    nav: { home: 'Inicio', catalog: 'Catálogo', project: 'El Proyecto', contact: 'Contacto' },
+    nav: { home: 'Inicio', catalog: 'Catálogo', contact: 'Contacto' },
     story: {
       whatItRepresents: 'A qué hace referencia',
       construction: 'Confección y detalles',
@@ -110,7 +110,7 @@ export const dictionary = {
     },
   },
   en: {
-    nav: { home: 'Home', catalog: 'Catalog', project: 'The Project', contact: 'Contact' },
+    nav: { home: 'Home', catalog: 'Catalog', contact: 'Contact' },
     story: {
       whatItRepresents: 'What it represents',
       construction: 'Construction and details',
