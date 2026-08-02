@@ -27,8 +27,10 @@ export function buildWhatsAppLink(product: StoreProduct, color?: string, price?:
 
 export type OrderDetails = {
   name: string
+  phone: string
   city: string
-  delivery: string
+  address: string
+  reference?: string
   comment?: string
 }
 
@@ -60,10 +62,30 @@ export function buildCartWhatsAppLink(cartLines: CartLine[], language: Language 
 
   const totalLine = language === 'es' ? `Total estimado: $${total.toFixed(2)} USD` : `Estimated total: $${total.toFixed(2)} USD`
 
+  const isOutsideQuito = details != null && details.city.trim().toLowerCase() !== 'quito'
+
   const detailLines = details
     ? language === 'es'
-      ? ['', `Nombre: ${details.name}`, `Ciudad: ${details.city}`, `Entrega: ${details.delivery}`, details.comment ? `Comentario: ${details.comment}` : null]
-      : ['', `Name: ${details.name}`, `City: ${details.city}`, `Delivery: ${details.delivery}`, details.comment ? `Comment: ${details.comment}` : null]
+      ? [
+          '',
+          `Nombre: ${details.name}`,
+          `Teléfono: ${details.phone}`,
+          `Ciudad: ${details.city}`,
+          `Dirección: ${details.address}`,
+          details.reference ? `Referencia: ${details.reference}` : null,
+          isOutsideQuito ? 'Envío fuera de Quito: costo adicional a confirmar' : null,
+          details.comment ? `Comentario: ${details.comment}` : null,
+        ]
+      : [
+          '',
+          `Name: ${details.name}`,
+          `Phone: ${details.phone}`,
+          `City: ${details.city}`,
+          `Address: ${details.address}`,
+          details.reference ? `Reference: ${details.reference}` : null,
+          isOutsideQuito ? 'Shipping outside Quito: additional cost to confirm' : null,
+          details.comment ? `Comment: ${details.comment}` : null,
+        ]
     : []
 
   const closing =

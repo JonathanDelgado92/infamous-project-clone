@@ -12,10 +12,11 @@ export default function CartPage() {
   const { strings, language } = useLanguage()
   const { lines, removeLine, setQuantity, totalUnits, totalPrice } = useCart()
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
   const [city, setCity] = useState('')
-  const [deliveryMethod, setDeliveryMethod] = useState<'pickup' | 'shipping'>('pickup')
+  const [address, setAddress] = useState('')
+  const [reference, setReference] = useState('')
   const [comment, setComment] = useState('')
-  const delivery = deliveryMethod === 'pickup' ? strings.cart.deliveryPickup : strings.cart.deliveryShipping
 
   if (lines.length === 0) {
     return (
@@ -28,8 +29,10 @@ export default function CartPage() {
     )
   }
 
-  const canSend = name.trim().length > 0 && city.trim().length > 0
-  const whatsappHref = canSend ? buildCartWhatsAppLink(lines, language, { name, city, delivery, comment: comment || undefined }) : undefined
+  const canSend = name.trim().length > 0 && phone.trim().length > 0 && city.trim().length > 0 && address.trim().length > 0
+  const whatsappHref = canSend
+    ? buildCartWhatsAppLink(lines, language, { name, phone, city, address, reference: reference || undefined, comment: comment || undefined })
+    : undefined
 
   return (
     <StoreShell>
@@ -69,15 +72,20 @@ export default function CartPage() {
               <input value={name} onChange={(event) => setName(event.target.value)} required />
             </label>
             <label>
+              {strings.cart.phone}
+              <input type="tel" value={phone} onChange={(event) => setPhone(event.target.value)} required />
+            </label>
+            <label>
               {strings.cart.city}
               <input value={city} onChange={(event) => setCity(event.target.value)} required />
             </label>
             <label>
-              {strings.cart.delivery}
-              <select value={deliveryMethod} onChange={(event) => setDeliveryMethod(event.target.value as 'pickup' | 'shipping')}>
-                <option value="pickup">{strings.cart.deliveryPickup}</option>
-                <option value="shipping">{strings.cart.deliveryShipping}</option>
-              </select>
+              {strings.cart.address}
+              <input value={address} onChange={(event) => setAddress(event.target.value)} required />
+            </label>
+            <label>
+              {strings.cart.reference}
+              <input value={reference} onChange={(event) => setReference(event.target.value)} />
             </label>
             <label>
               {strings.cart.comment}
