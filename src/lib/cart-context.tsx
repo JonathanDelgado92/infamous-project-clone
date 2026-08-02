@@ -10,6 +10,7 @@ export type CartLine = {
   title: string
   storyNumber: string
   color: string
+  size: string
   price: number
   image: string
   quantity: number

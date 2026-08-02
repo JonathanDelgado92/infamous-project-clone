@@ -48,6 +48,7 @@ export default function CartPage() {
               <div className="cart-line__info">
                 <p className="cart-line__title">{line.title}</p>
                 {line.color && <p className="cart-line__color">{strings.story.color}: {line.color}</p>}
+                {line.size && <p className="cart-line__color">{strings.story.size}: {line.size}</p>}
                 <p className="cart-line__price">${line.price.toFixed(2)} USD</p>
                 <div className="quantity">
                   <button onClick={() => setQuantity(line.key, line.quantity - 1)} disabled={line.quantity <= 1} aria-label="Decrease quantity">-</button>

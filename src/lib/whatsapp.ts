@@ -4,7 +4,7 @@ import type { Language } from './i18n'
 
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '593962393863'
 
-export function buildWhatsAppLink(product: StoreProduct, color?: string, price?: number | null, language: Language = 'es') {
+export function buildWhatsAppLink(product: StoreProduct, color?: string, price?: number | null, language: Language = 'es', size?: string) {
   const displayPrice = price ?? product.price
   const lines =
     language === 'es'
@@ -12,12 +12,14 @@ export function buildWhatsAppLink(product: StoreProduct, color?: string, price?:
           `Hola, quiero consultar disponibilidad de:`,
           `Historia ${product.storyNumber} · ${product.title}`,
           color ? `Color: ${color}` : null,
+          size ? `Talla: ${size}` : null,
           product.priceConfirmed && displayPrice != null ? `Precio: $${Number(displayPrice).toFixed(2)} USD` : 'Precio: a confirmar',
         ]
       : [
           `Hi, I'd like to check availability for:`,
           `Story ${product.storyNumber} · ${product.title}`,
           color ? `Color: ${color}` : null,
+          size ? `Size: ${size}` : null,
           product.priceConfirmed && displayPrice != null ? `Price: $${Number(displayPrice).toFixed(2)} USD` : 'Price: pending confirmation',
         ]
 
@@ -46,6 +48,7 @@ export function buildCartWhatsAppLink(cartLines: CartLine[], language: Language 
           '',
           `Historia ${item.storyNumber} — ${item.title}`,
           item.color ? `Color: ${item.color}` : null,
+          item.size ? `Talla: ${item.size}` : null,
           `Cantidad: ${item.quantity}`,
           `Precio unitario: $${item.price.toFixed(2)}`,
           `Subtotal: $${subtotal.toFixed(2)}`,
@@ -54,6 +57,7 @@ export function buildCartWhatsAppLink(cartLines: CartLine[], language: Language 
           '',
           `Story ${item.storyNumber} — ${item.title}`,
           item.color ? `Color: ${item.color}` : null,
+          item.size ? `Size: ${item.size}` : null,
           `Quantity: ${item.quantity}`,
           `Unit price: $${item.price.toFixed(2)}`,
           `Subtotal: $${subtotal.toFixed(2)}`,

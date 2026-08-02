@@ -31,6 +31,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const [selected, setSelected] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0] ?? '')
   const [justAdded, setJustAdded] = useState(false)
   const [lens, setLens] = useState<LensState>(initialLens)
   const [supportsZoom, setSupportsZoom] = useState(false)
@@ -57,11 +58,12 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
     if (!canBuy || displayPrice == null) return
     addLine(
       {
-        key: `${product.slug}-${selectedColor || 'default'}`,
+        key: `${product.slug}-${selectedColor || 'default'}-${selectedSize || 'default'}`,
         slug: product.slug,
         title: product.title,
         storyNumber: product.storyNumber,
         color: selectedColor,
+        size: selectedSize,
         price: displayPrice,
         image: product.primaryImage,
       },
@@ -134,6 +136,12 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
             <span className="color-swatch" style={{ '--swatch': variant?.swatch ?? '#888' } as CSSProperties} aria-hidden="true" />
           </button>
         })}</div></fieldset>}
+        {product.sizes.length > 1 && <fieldset><legend>{strings.story.size}: <strong>{selectedSize}</strong></legend><div className="sold-options">{product.sizes.map((size) => {
+          const isSelected = selectedSize === size
+          return <button className={isSelected ? 'is-selected' : ''} key={size} type="button" aria-pressed={isSelected} onClick={() => setSelectedSize(size)}>
+            {size}
+          </button>
+        })}</div></fieldset>}
         <label className="quantity-label" htmlFor="quantity">{strings.story.quantity}</label>
         <div className="quantity"><button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity">-</button><input id="quantity" value={quantity} readOnly /><button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button></div>
         {canBuy ? (
@@ -141,7 +149,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
             <button type="button" className="button button--add-to-cart" onClick={handleAddToCart}>
               {justAdded ? strings.story.addedToCart : strings.story.addToCart}
             </button>
-            <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice, language)} target="_blank" rel="noreferrer">
+            <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice, language, selectedSize || undefined)} target="_blank" rel="noreferrer">
               {strings.story.buyWhatsapp}
             </a>
           </div>

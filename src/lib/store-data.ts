@@ -20,6 +20,7 @@ export type StoreProduct = {
   primaryImage: string
   hoverImage?: string
   media: string[]
+  sizes: string[]
   colors: string[]
   colorVariants?: {
     name: string
@@ -79,6 +80,7 @@ export const products: StoreProduct[] = [
       '/images/stories/001/E3646497-A42C-4556-A5BB-D2F504CCD19B.png',
       '/images/stories/001/IMG_5157.JPG',
     ],
+    sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Black', 'White', 'Acid Wash Gray', 'Steel'],
     colorVariants: [
       { name: 'Black', swatch: '#171717', media: ['/images/stories/001/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/stories/001/96448C35-8F8C-4BA8-A9DB-C630B7B9B3B5.png', '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png', '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png', '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png', '/images/stories/001/IMG_5047.PNG', '/images/stories/001/photo-output.jpg'] },
@@ -148,6 +150,7 @@ export const products: StoreProduct[] = [
       '/images/stories/002/139309A9-0401-47DA-8F27-C9A91A697901.png',
       '/images/stories/002/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png',
     ],
+    sizes: ['S', 'M', 'L', 'XL'],
     colors: [],
     content: {
       es: {
@@ -220,6 +223,7 @@ export const products: StoreProduct[] = [
       '/images/stories/003/IMG_5177.jpg',
       '/images/stories/003/069844C0-026F-4C33-925C-980CFB592F34.png',
     ],
+    sizes: ['XS', 'S', 'M'],
     colors: ['White', 'Black'],
     colorVariants: [
       { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png', '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png', '/images/stories/003/IMG_5195.JPG', '/images/stories/003/IMG_5172.jpg', '/images/stories/003/IMG_5171.jpg', '/images/stories/003/IMG_5174.jpg'] },
@@ -279,6 +283,7 @@ export const products: StoreProduct[] = [
       '/images/stories/004/8C1B52DB-DE88-449F-B1FE-1F30AD2354C5.png',
       '/images/stories/004/6DB2CC98-E09F-4E91-9606-712213EF9252.png',
     ],
+    sizes: ['S', 'M', 'L', 'XL'],
     colors: [],
     content: {
       es: {
@@ -345,6 +350,7 @@ export const products: StoreProduct[] = [
       '/images/stories/005/IMG_5253.PNG',
       '/images/stories/005/IMG_5257.PNG',
     ],
+    sizes: ['One Size'],
     colors: ['Grey · Classic', 'Grey · Dark Label', 'Black · White Label', 'Black · Grey Label'],
     colorVariants: [
       { name: 'Grey · Classic', swatch: '#a7a7a7', media: ['/images/stories/005/IMG_5228.JPG', '/images/stories/005/IMG_5233.JPG', '/images/stories/005/IMG_5256.JPG', '/images/stories/005/IMG_5258.JPG'] },
@@ -425,6 +431,7 @@ export const products: StoreProduct[] = [
       '/images/stories/006/IMG_4516.jpg',
       '/images/stories/006/IMG_4520.jpg',
     ],
+    sizes: ['One Size'],
     colors: ['Navy', 'Camel', 'Grey'],
     colorVariants: [
       { name: 'Navy', swatch: '#1b2a4a', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png', '/images/stories/006/IMG_4474.jpg', '/images/stories/006/IMG_4479.jpg', '/images/stories/006/IMG_4486.jpg', '/images/stories/006/IMG_4492.jpg', '/images/stories/006/IMG_4551.jpg'] },
