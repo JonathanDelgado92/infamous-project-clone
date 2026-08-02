@@ -13,7 +13,11 @@ export function EditorialSection() {
         <br />
         {editorial.eyebrowBottom}
       </h2>
-      <p className="editorial-section__lead">{editorial.lead}</p>
+      <p className="editorial-section__lead">
+        {editorial.leadLine1}
+        <br />
+        {editorial.leadLine2}
+      </p>
       <p className="editorial-section__remains">{editorial.remains}</p>
       <p className="editorial-section__body">{editorial.body}</p>
       <p className="editorial-section__closing">

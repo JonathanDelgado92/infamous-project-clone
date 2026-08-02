@@ -29,6 +29,7 @@ export const dictionary = {
       exchanges: 'Cambios',
       productCare: 'Cuidado de la prenda',
       faq: 'Preguntas frecuentes',
+      social: 'SÍGUENOS',
       instagram: 'Instagram',
     },
     policy: {
@@ -80,7 +81,8 @@ export const dictionary = {
     editorial: {
       eyebrowTop: 'ESTO NO ES UN DROP.',
       eyebrowBottom: 'ES UNA HISTORIA.',
-      lead: 'Un drop aparece, genera ruido y desaparece.',
+      leadLine1: 'Un drop aparece,',
+      leadLine2: 'genera ruido y desaparece.',
       remains: 'Una historia permanece.',
       body: 'En INFAMOUS PROJECT, cada pieza nace de una idea, una etapa y una manera de enfrentar el mundo. Cada mensaje, material, color, estampado y detalle de confección forma parte de la narrativa.',
       closingTop: 'NO VESTIMOS TENDENCIAS.',
@@ -165,6 +167,7 @@ export const dictionary = {
       exchanges: 'Exchanges',
       productCare: 'Product care',
       faq: 'FAQ',
+      social: 'FOLLOW US',
       instagram: 'Instagram',
     },
     policy: {
@@ -216,7 +219,8 @@ export const dictionary = {
     editorial: {
       eyebrowTop: 'THIS IS NOT A DROP.',
       eyebrowBottom: 'THIS IS A STORY.',
-      lead: 'A drop appears, creates noise and disappears.',
+      leadLine1: 'A drop appears,',
+      leadLine2: 'creates noise and disappears.',
       remains: 'A story remains.',
       body: 'At INFAMOUS PROJECT, every piece begins with an idea, a chapter and a way of facing the world. Every message, material, color, print and construction detail belongs to the narrative.',
       closingTop: 'WE DO NOT WEAR TRENDS.',

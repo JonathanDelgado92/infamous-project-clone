@@ -27,8 +27,16 @@ export function SiteFooter() {
           <Link href="/pages/faq">{strings.footer.faq}</Link>
         </div>
         <div className="site-footer__brand">
-          <p>BUILT IN THE SHADOWS. PROVEN IN THE LIGHT.</p>
-          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">{strings.footer.instagram}</a>
+          <h2>{strings.footer.social}</h2>
+          <a className="site-footer__social-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+            <span>{strings.footer.instagram}</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <p className="site-footer__tagline">BUILT IN THE SHADOWS. PROVEN IN THE LIGHT.</p>
         </div>
       </div>
       <div className="site-footer__bottom">
