@@ -66,9 +66,8 @@ export const dictionary = {
     },
     founder: {
       caption: 'CONOCE AL FUNDADOR',
-      title: 'LA VISIÓN DETRÁS DE INFAMOUS',
-      text: 'INFAMOUS FUE CREADO PARA QUIENES SE MUEVEN DIFERENTE. CADA PIEZA ESTÁ CONFECCIONADA CON PRECISIÓN, PODER Y PRESENCIA—UN REFLEJO DE INDIVIDUALIDAD Y CARÁCTER. ESTO NO ES SOLO MODA. ES UNA DECLARACIÓN.',
-      cta: 'CONOCER MÁS',
+      title: 'LA MENTE DETRÁS DE INFAMOUS',
+      text: 'Infamous no fue creado para quienes persiguen atención, sino para aquellos que trabajan en silencio y dejan que sus resultados sean tan grandes que resulte imposible ignorarlos. No viven por los likes ni buscan ser aceptados. Visten oversized, pero caminan con la presencia de alguien a quien el mundo le debe algo. Se construyen en las sombras, avanzan sin pedir permiso y crean un legado tan poderoso que, al final, todos terminan hablando de ellos.',
     },
     editorial: {
       eyebrowTop: 'ESTO NO ES UN DROP.',
@@ -192,9 +191,8 @@ export const dictionary = {
     },
     founder: {
       caption: 'MEET THE FOUNDER',
-      title: 'THE VISION BEHIND INFAMOUS',
-      text: 'INFAMOUS WAS CREATED FOR THOSE WHO MOVE DIFFERENTLY. EVERY PIECE IS CRAFTED WITH PRECISION, POWER, AND PRESENCE—A REFLECTION OF INDIVIDUALITY AND EDGE. THIS ISN\'T JUST FASHION. IT\'S A STATEMENT.',
-      cta: 'LEARN MORE',
+      title: 'THE MIND BEHIND INFAMOUS',
+      text: "Infamous wasn't created for those chasing attention, but for those who work in silence and let their results grow so large they become impossible to ignore. They don't live for likes or seek approval. They dress oversized, yet carry themselves with the presence of someone the world owes something to. They build in the shadows, move without asking permission, and create a legacy so powerful that, in the end, everyone ends up talking about them.",
     },
     editorial: {
       eyebrowTop: 'THIS IS NOT A DROP.',

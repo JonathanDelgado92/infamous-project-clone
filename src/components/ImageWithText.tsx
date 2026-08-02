@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/lib/language-context'
 
@@ -53,12 +52,6 @@ export function ImageWithText() {
               <div className="image-with-text__text rte body" style={{ fontSize: '1.6rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)', margin: '1rem 0 2rem' }}>
                 <p>{strings.founder.text}</p>
               </div>
-              <Link
-                href="/pages/contact"
-                className="button button--secondary"
-              >
-                {strings.founder.cta}
-              </Link>
             </div>
           </div>
         </div>
