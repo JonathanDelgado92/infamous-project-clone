@@ -7,7 +7,6 @@ import { ImageWithText } from '@/components/ImageWithText'
 import { InstagramFeed } from '@/components/InstagramFeed'
 import { MarqueeSection } from '@/components/MarqueeSection'
 import { NewsletterPopup } from '@/components/NewsletterPopup'
-import { NewsletterSection } from '@/components/NewsletterSection'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -21,14 +20,12 @@ export default function Home() {
       <SiteHeader />
       <main id="MainContent">
         <ImageBanner />
-        <MarqueeSection variant="primary" />
+        <MarqueeSection />
         <CoreStories />
         <EditorialSection />
         <ImageWithText />
         <TestimonialSlider />
         <ImageBannerTwo />
-        <MarqueeSection variant="secondary" />
-        <NewsletterSection />
         <InstagramFeed />
       </main>
       <NewsletterPopup />

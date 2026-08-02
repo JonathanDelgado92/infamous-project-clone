@@ -61,9 +61,6 @@ export const dictionary = {
       cta: 'EXPLORAR LAS HISTORIAS',
       ctaSecondary: 'ENTRA AL PROYECTO',
     },
-    marquee: {
-      secondary: ['EDICIÓN LIMITADA', '☯', 'PIEZAS CON CARÁCTER', '☯', 'ÍCONOS DEL FUTURO', '☯'],
-    },
     founder: {
       caption: 'CONOCE AL FUNDADOR',
       title: 'LA MENTE DETRÁS DE INFAMOUS',
@@ -83,7 +80,7 @@ export const dictionary = {
     },
     newsletter: {
       title: 'ÚNETE A INFAMOUS PROJECT',
-      subtitle: 'LANZAMIENTOS LIMITADOS Y ACCESO ANTICIPADO',
+      subtitle: 'Entérate de las nuevas historias apenas estén listas.',
       placeholder: 'Correo electrónico',
       thanks: '¡Gracias por suscribirte!',
     },
@@ -92,11 +89,6 @@ export const dictionary = {
       text: 'LANZAMIENTOS LIMITADOS. ACCESO ANTICIPADO. ÚNETE A INFAMOUS PROJECT Y OBTÉN 10% EN TU PRIMERA ORDEN.',
       thanks: 'Gracias por suscribirte.',
       legal: 'Al registrarte, aceptas nuestros Términos de Servicio y Política de Privacidad.',
-    },
-    secondBanner: {
-      title: 'ADELÁNTATE AL LANZAMIENTO',
-      text: 'LANZAMIENTOS LIMITADOS. ACCESO ANTICIPADO. LAS PIEZAS INFAMOUS NO ESPERAN—Y TÚ TAMPOCO DEBERÍAS.',
-      cta: 'COMPRAR AHORA',
     },
     instagram: 'SÍGUENOS EN INSTAGRAM',
     collection: {
@@ -180,9 +172,6 @@ export const dictionary = {
       cta: 'SHOP THE STORIES',
       ctaSecondary: 'ENTER THE PROJECT',
     },
-    marquee: {
-      secondary: ['LIMITED EDITION', '☯', 'STATEMENT PIECES', '☯', 'FUTURE ICONS', '☯'],
-    },
     founder: {
       caption: 'MEET THE FOUNDER',
       title: 'THE MIND BEHIND INFAMOUS',
@@ -202,7 +191,7 @@ export const dictionary = {
     },
     newsletter: {
       title: 'JOIN INFAMOUS PROJECT',
-      subtitle: 'LIMITED RELEASES & EARLY ACCESS',
+      subtitle: 'Find out about new stories as soon as they drop.',
       placeholder: 'Email',
       thanks: 'Thank you for subscribing!',
     },
@@ -211,11 +200,6 @@ export const dictionary = {
       text: 'LIMITED RELEASES. EARLY ACCESS. JOIN INFAMOUS PROJECT AND GET 10% OFF YOUR FIRST ORDER.',
       thanks: 'Thank you for subscribing.',
       legal: 'By signing up for email, you agree to our Terms of Service and Privacy Policy.',
-    },
-    secondBanner: {
-      title: 'STAY AHEAD OF THE RELEASE',
-      text: 'LIMITED RELEASES. EARLY ACCESS. INFAMOUS PIECES DON\'T WAIT—AND NEITHER SHOULD YOU.',
-      cta: 'SHOP NOW',
     },
     instagram: 'FOLLOW US ON INSTAGRAM',
     collection: {
