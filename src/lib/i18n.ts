@@ -58,14 +58,10 @@ export const dictionary = {
     },
     announcement: 'EDICIONES LIMITADAS. HISTORIAS EN CADA PIEZA. INFAMOUS YA ESTÁ AQUÍ.',
     hero: {
-      subtitle: 'No lanzamos ropa. Liberamos historias',
-      titleLine1: 'DESTACA.',
-      titleLine2: 'HAZTE INFAMOUS',
       cta: 'EXPLORAR LAS HISTORIAS',
       ctaSecondary: 'ENTRA AL PROYECTO',
     },
     marquee: {
-      primary: ['NO ES HYPE. ES LEGADO', 'EDICIÓN LIMITADA', 'CONSTRUIDO EN LAS SOMBRAS', 'BIENVENIDO AL PROYECTO'],
       secondary: ['EDICIÓN LIMITADA', '☯', 'PIEZAS CON CARÁCTER', '☯', 'ÍCONOS DEL FUTURO', '☯'],
     },
     featured: {
@@ -196,14 +192,10 @@ export const dictionary = {
     },
     announcement: 'LIMITED RELEASES. STORIES IN EVERY PIECE. INFAMOUS IS NOW LIVE.',
     hero: {
-      subtitle: 'We don\'t drop clothes. We release stories',
-      titleLine1: 'STAND OUT.',
-      titleLine2: 'STAY INFAMOUS',
       cta: 'SHOP THE STORIES',
       ctaSecondary: 'ENTER THE PROJECT',
     },
     marquee: {
-      primary: ['NOT MADE FOR HYPE. MADE FOR LEGACY', 'LIMITED EDITION', 'BUILT IN THE SHADOWS', 'WELCOME TO THE PROJECT'],
       secondary: ['LIMITED EDITION', '☯', 'STATEMENT PIECES', '☯', 'FUTURE ICONS', '☯'],
     },
     featured: {

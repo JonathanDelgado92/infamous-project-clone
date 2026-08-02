@@ -2,13 +2,15 @@
 
 import { useLanguage } from '@/lib/language-context'
 
+const PRIMARY_ITEMS = ['NOT MADE FOR HYPE. MADE FOR LEGACY', 'LIMITED EDITION', 'NO WEAK SH!T', 'WELCOME TO STORE']
+
 type MarqueeSectionProps = {
   variant: 'primary' | 'secondary'
 }
 
 export function MarqueeSection({ variant }: MarqueeSectionProps) {
   const { strings } = useLanguage()
-  const items = variant === 'primary' ? strings.marquee.primary : strings.marquee.secondary
+  const items = variant === 'primary' ? PRIMARY_ITEMS : strings.marquee.secondary
   const repeated = Array.from({ length: 4 }, () => [...items]).flat()
 
   return (
