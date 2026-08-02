@@ -5,6 +5,8 @@ import { useLanguage } from '@/lib/language-context'
 export function TestimonialSlider() {
   const { strings } = useLanguage()
 
+  if (strings.testimonials.items.length === 0) return null
+
   return (
     <section className="testimonials section-padding scroll-trigger animate--slide-in" aria-labelledby="testimonials-title">
       <div className="section-heading">

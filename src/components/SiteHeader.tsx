@@ -6,9 +6,11 @@ import { gsap } from 'gsap'
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon'
 import { LanguageToggle } from '@/components/LanguageToggle'
 import { useLanguage } from '@/lib/language-context'
+import { useCart } from '@/lib/cart-context'
 
 export function SiteHeader() {
   const { strings } = useLanguage()
+  const { totalUnits } = useCart()
   const menuLinks: [string, string][] = [
     ['/', strings.nav.home],
     ['/collections/all', strings.nav.catalog],
@@ -99,7 +101,9 @@ export function SiteHeader() {
         <LanguageToggle />
         <button className="icon-button search-icon" aria-label="Search" onClick={() => setSearchOpen(true)} />
         <span className="icon-button account-icon small-hide" aria-label="Log in" />
-        <Link href="/cart" className="icon-button cart-icon" aria-label="Cart" />
+        <Link href="/cart" className="icon-button cart-icon" aria-label={`Cart, ${totalUnits} items`}>
+          {totalUnits > 0 && <span className="cart-icon__badge">{totalUnits}</span>}
+        </Link>
       </div>
 
       <div ref={backdropRef} className="drawer-backdrop" onClick={() => setMenuOpen(false)} />

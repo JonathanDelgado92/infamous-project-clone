@@ -1,5 +1,6 @@
 import { AnnouncementBar } from '@/components/AnnouncementBar'
 import { CoreStories } from '@/components/CoreStories'
+import { EditorialSection } from '@/components/EditorialSection'
 import { FeaturedCollection } from '@/components/FeaturedCollection'
 import { ImageBanner } from '@/components/ImageBanner'
 import { ImageBannerTwo } from '@/components/ImageBannerTwo'
@@ -24,6 +25,7 @@ export default function Home() {
         <ImageBanner />
         <MarqueeSection variant="primary" />
         <CoreStories />
+        <EditorialSection />
         <FeaturedCollection />
         <ImageWithText />
         <StoppableVideos />

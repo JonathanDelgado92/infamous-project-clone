@@ -6,7 +6,7 @@ export function ImageWithText() {
   const { strings } = useLanguage()
 
   return (
-    <div className="shopify-section section">
+    <div className="section" id="founder">
       <div className="gradient color-scheme-2" style={{ padding: '36px 0' }}>
         <div className="page-width content-shell">
           <div className="scroll-trigger animate--slide-in image-with-text image-with-text--no-overlap isolate" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
@@ -39,7 +39,7 @@ export function ImageWithText() {
                 <p>{strings.founder.text}</p>
               </div>
               <a
-                href="/pages/about"
+                href="/"
                 className="button button--secondary"
               >
                 {strings.founder.cta}

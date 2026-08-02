@@ -5,11 +5,32 @@ import Image from 'next/image'
 import { StoreShell } from '@/components/StoreShell'
 import { products } from '@/lib/store-data'
 import { useLanguage } from '@/lib/language-context'
-import { useState } from 'react'
 
 export default function CollectionPage() {
   const { strings } = useLanguage()
-  const [sort, setSort] = useState('featured')
-  const sorted = [...products].sort((a, b) => sort === 'price-low' ? (a.price ?? 0) - (b.price ?? 0) : sort === 'price-high' ? (b.price ?? 0) - (a.price ?? 0) : 0)
-  return <StoreShell><section className="collection-page page-width"><h1>Products</h1><div className="collection-controls"><label>{strings.collection.sortBy}: <select value={sort} onChange={event => setSort(event.target.value)}><option value="featured">{strings.collection.featured}</option><option value="price-low">{strings.collection.priceLow}</option><option value="price-high">{strings.collection.priceHigh}</option></select></label><span>{products.length} {strings.collection.products}</span></div><div className="product-grid">{sorted.map(product => <Link className="product-card" key={product.slug} href={`/products/${product.slug}`}><div><Image src={product.primaryImage} alt={product.title} fill sizes="(max-width: 749px) 50vw, 25vw" style={{ objectFit: 'cover' }} quality={78} />{product.hoverImage && <Image className="product-card__hover" src={product.hoverImage} alt="" fill sizes="(max-width: 749px) 50vw, 25vw" style={{ objectFit: 'cover' }} quality={78} />}</div><h2>{product.title}</h2><p>{product.priceConfirmed ? product.priceLabel : strings.story.pricePending}</p></Link>)}</div></section></StoreShell>
+
+  return (
+    <StoreShell>
+      <section className="collection-page page-width">
+        <h1>{strings.collection.title}</h1>
+        <div className="collection-controls">
+          <span>{products.length} {strings.collection.products}</span>
+        </div>
+        <div className="product-grid">
+          {products.map((product) => (
+            <Link className="product-card" key={product.slug} href={`/products/${product.slug}`}>
+              <div>
+                <Image src={product.primaryImage} alt={product.title} fill sizes="(max-width: 749px) 50vw, 25vw" style={{ objectFit: 'cover' }} quality={78} />
+                {product.hoverImage && <Image className="product-card__hover" src={product.hoverImage} alt="" fill sizes="(max-width: 749px) 50vw, 25vw" style={{ objectFit: 'cover' }} quality={78} />}
+                {product.status !== 'available' && <span className="product-card__status">{strings.status[product.status]}</span>}
+              </div>
+              <span className="product-card__story-number">Story {product.storyNumber}</span>
+              <h2>{product.title}</h2>
+              <p>{product.priceConfirmed ? product.priceLabel : strings.story.pricePending}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </StoreShell>
+  )
 }

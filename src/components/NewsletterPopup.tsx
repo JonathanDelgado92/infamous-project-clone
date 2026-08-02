@@ -32,7 +32,7 @@ export function NewsletterPopup() {
         <button className="newsletter-popup__close" aria-label="Close" onClick={dismiss}>×</button>
         <h2 id="popup-title">{strings.newsletterPopup.title}</h2>
         <p>{strings.newsletterPopup.text}</p>
-        {sent ? <p className="form-success">{strings.newsletterPopup.thanks}</p> : <form onSubmit={submit}><input type="email" aria-label={strings.newsletter.placeholder} placeholder={strings.newsletter.placeholder} required /><button aria-label="Subscribe">→</button></form>}
+        {sent ? <p className="form-success" role="status">{strings.newsletterPopup.thanks}</p> : <form onSubmit={submit}><input type="email" aria-label={strings.newsletter.placeholder} placeholder={strings.newsletter.placeholder} required /><button aria-label="Subscribe">→</button></form>}
         <small>{strings.newsletterPopup.legal}</small>
       </div>
     </div>

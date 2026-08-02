@@ -6,10 +6,12 @@ import type { StoreProduct } from '@/lib/store-data'
 import { getNextProduct } from '@/lib/store-data'
 import { useEffect, useState, type CSSProperties } from 'react'
 import { useLanguage } from '@/lib/language-context'
+import { useCart } from '@/lib/cart-context'
 import { buildWhatsAppLink } from '@/lib/whatsapp'
 
 export function ProductDetail({ product }: { product: StoreProduct }) {
   const { language, strings } = useLanguage()
+  const { addLine } = useCart()
   const content = product.content[language]
   const nextProduct = getNextProduct(product.slug)
   const [selected, setSelected] = useState(0)
@@ -17,6 +19,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
   const [isHovering, setIsHovering] = useState(false)
+  const [justAdded, setJustAdded] = useState(false)
   const activeVariant = product.colorVariants?.find((v) => v.name === selectedColor)
   const activeMedia = activeVariant?.media ?? product.media
   const displayPrice = activeVariant?.price ?? product.price
@@ -26,6 +29,26 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const jumpToColor = (color: string) => {
     setSelectedColor(color)
     setSelected(0)
+  }
+
+  const canBuy = product.status === 'available' && product.priceConfirmed && displayPrice != null
+
+  const handleAddToCart = () => {
+    if (!canBuy || displayPrice == null) return
+    addLine(
+      {
+        key: `${product.slug}-${selectedColor || 'default'}`,
+        slug: product.slug,
+        title: product.title,
+        storyNumber: product.storyNumber,
+        color: selectedColor,
+        price: displayPrice,
+        image: product.primaryImage,
+      },
+      quantity,
+    )
+    setJustAdded(true)
+    window.setTimeout(() => setJustAdded(false), 2500)
   }
 
   useEffect(() => {
@@ -63,6 +86,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
       <div className="product-info scroll-trigger animate--slide-in">
         <p className="eyebrow">Infamous Project · {language === 'es' ? 'Historia' : 'Story'} {product.storyNumber}</p>
         <h1>{product.title}</h1>
+        {product.status !== 'available' && <p className="product-status">{strings.status[product.status]}</p>}
         {product.priceConfirmed ? (
           <p className="product-price">${displayPrice?.toFixed(2)} USD</p>
         ) : (
@@ -77,9 +101,21 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
         })}</div></fieldset>}
         <label className="quantity-label" htmlFor="quantity">{strings.story.quantity}</label>
         <div className="quantity"><button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity">-</button><input id="quantity" value={quantity} readOnly /><button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button></div>
-        <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice)} target="_blank" rel="noreferrer">
-          {strings.story.buyWhatsapp}
-        </a>
+        {canBuy ? (
+          <div className="product-actions">
+            <button type="button" className="button button--add-to-cart" onClick={handleAddToCart}>
+              {justAdded ? strings.story.addedToCart : strings.story.addToCart}
+            </button>
+            <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice, language)} target="_blank" rel="noreferrer">
+              {strings.story.buyWhatsapp}
+            </a>
+          </div>
+        ) : (
+          <span className="whatsapp-button whatsapp-button--disabled" aria-disabled="true">
+            {strings.status[product.status]}
+          </span>
+        )}
+        <p className="visually-hidden" role="status" aria-live="polite">{justAdded ? strings.story.addedToCart : ''}</p>
 
         <div className="story-narrative">
           <p className="story-narrative__phrase">{content.phrase}</p>
