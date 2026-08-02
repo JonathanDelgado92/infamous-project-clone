@@ -4,7 +4,6 @@ import { EditorialSection } from '@/components/EditorialSection'
 import { ImageBanner } from '@/components/ImageBanner'
 import { ImageBannerTwo } from '@/components/ImageBannerTwo'
 import { ImageWithText } from '@/components/ImageWithText'
-import { InstagramFeed } from '@/components/InstagramFeed'
 import { MarqueeSection } from '@/components/MarqueeSection'
 import { NewsletterPopup } from '@/components/NewsletterPopup'
 import { ScrollObserver } from '@/components/ScrollObserver'
@@ -26,7 +25,6 @@ export default function Home() {
         <ImageWithText />
         <TestimonialSlider />
         <ImageBannerTwo />
-        <InstagramFeed />
       </main>
       <NewsletterPopup />
       <SiteFooter />

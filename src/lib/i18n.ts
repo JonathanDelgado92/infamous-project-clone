@@ -21,16 +21,12 @@ export const dictionary = {
       addedToCart: 'Añadido al carrito',
     },
     footer: {
-      quickLinks: 'ENLACES',
       whatsapp: 'Contáctanos por WhatsApp',
-      customerCare: 'ATENCIÓN AL CLIENTE',
       sizeGuide: 'Guía de tallas',
       shipping: 'Envíos',
       exchanges: 'Cambios',
       productCare: 'Cuidado de la prenda',
       faq: 'Preguntas frecuentes',
-      social: 'SÍGUENOS',
-      instagram: 'Instagram',
     },
     policy: {
       comingSoonText: 'Estamos preparando esta información. Mientras tanto, escríbenos por WhatsApp y te ayudamos directamente.',
@@ -59,7 +55,6 @@ export const dictionary = {
     announcement: 'EDICIONES LIMITADAS. HISTORIAS EN CADA PIEZA. INFAMOUS YA ESTÁ AQUÍ.',
     hero: {
       cta: 'EXPLORAR LAS HISTORIAS',
-      ctaSecondary: 'ENTRA AL PROYECTO',
     },
     founder: {
       caption: 'CONOCE AL FUNDADOR',
@@ -132,16 +127,12 @@ export const dictionary = {
       addedToCart: 'Added to cart',
     },
     footer: {
-      quickLinks: 'QUICK LINKS',
       whatsapp: 'Contact us on WhatsApp',
-      customerCare: 'CUSTOMER CARE',
       sizeGuide: 'Size guide',
       shipping: 'Shipping',
       exchanges: 'Exchanges',
       productCare: 'Product care',
       faq: 'FAQ',
-      social: 'FOLLOW US',
-      instagram: 'Instagram',
     },
     policy: {
       comingSoonText: "We're putting this information together. In the meantime, reach out on WhatsApp and we'll help you directly.",
@@ -170,7 +161,6 @@ export const dictionary = {
     announcement: 'LIMITED RELEASES. STORIES IN EVERY PIECE. INFAMOUS IS NOW LIVE.',
     hero: {
       cta: 'SHOP THE STORIES',
-      ctaSecondary: 'ENTER THE PROJECT',
     },
     founder: {
       caption: 'MEET THE FOUNDER',

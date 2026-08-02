@@ -25,9 +25,6 @@ export function ImageBanner() {
           <Link className="button button--primary" href="/collections/all">
             {strings.hero.cta}
           </Link>
-          <Link className="button button--secondary" href="/#founder">
-            {strings.hero.ctaSecondary}
-          </Link>
         </div>
       </div>
     </section>
