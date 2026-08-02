@@ -152,16 +152,16 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
         <p className="visually-hidden" role="status" aria-live="polite">{justAdded ? strings.story.addedToCart : ''}</p>
 
         <div className="story-narrative">
+          <h2>{strings.story.construction} · {product.fabricLabel}</h2>
+          <ul>
+            {content.construction.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+
           <p className="story-narrative__phrase">{content.phrase}</p>
           {content.narrative.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
 
           <h2>{strings.story.whatItRepresents}</h2>
           <p>{content.whatItRepresents}</p>
-
-          <h2>{strings.story.construction} · {product.fabricLabel}</h2>
-          <ul>
-            {content.construction.map((item) => <li key={item}>{item}</li>)}
-          </ul>
         </div>
 
         <Link className="story-next" href={`/products/${nextProduct.slug}`}>
