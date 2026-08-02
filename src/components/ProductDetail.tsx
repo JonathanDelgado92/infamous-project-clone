@@ -4,10 +4,23 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { StoreProduct } from '@/lib/store-data'
 import { getNextProduct } from '@/lib/store-data'
-import { useEffect, useState, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { useCart } from '@/lib/cart-context'
 import { buildWhatsAppLink } from '@/lib/whatsapp'
+
+const ZOOM = 2.2
+const LENS_SIZE = 180
+
+type LensState = {
+  visible: boolean
+  x: number
+  y: number
+  containerWidth: number
+  containerHeight: number
+}
+
+const initialLens: LensState = { visible: false, x: 0, y: 0, containerWidth: 0, containerHeight: 0 }
 
 export function ProductDetail({ product }: { product: StoreProduct }) {
   const { language, strings } = useLanguage()
@@ -15,16 +28,22 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const content = product.content[language]
   const nextProduct = getNextProduct(product.slug)
   const [selected, setSelected] = useState(0)
-  const [modalOpen, setModalOpen] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
-  const [isHovering, setIsHovering] = useState(false)
   const [justAdded, setJustAdded] = useState(false)
+  const [lens, setLens] = useState<LensState>(initialLens)
+  const [supportsZoom, setSupportsZoom] = useState(false)
   const activeVariant = product.colorVariants?.find((v) => v.name === selectedColor)
   const activeMedia = activeVariant?.media ?? product.media
   const displayPrice = activeVariant?.price ?? product.price
-  const hoverSrc = activeVariant && activeVariant.media.length > 1 ? activeVariant.media[1] : null
-  const mainSrc = isHovering && hoverSrc ? hoverSrc : activeMedia[selected]
+  const mainSrc = activeMedia[selected]
+
+  // Synchronizes React state from the external matchMedia source on mount;
+  // starting false keeps the client's first render matching the server-rendered HTML.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSupportsZoom(window.matchMedia('(hover: hover) and (pointer: fine)').matches)
+  }, [])
 
   const jumpToColor = (color: string) => {
     setSelectedColor(color)
@@ -51,32 +70,47 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
     window.setTimeout(() => setJustAdded(false), 2500)
   }
 
-  useEffect(() => {
-    const keydown = (event: KeyboardEvent) => {
-      if (!modalOpen) return
-      if (event.key === 'Escape') setModalOpen(false)
-      if (event.key === 'ArrowRight') setSelected((value) => (value + 1) % activeMedia.length)
-      if (event.key === 'ArrowLeft') setSelected((value) => (value - 1 + activeMedia.length) % activeMedia.length)
-    }
-    window.addEventListener('keydown', keydown)
-    return () => window.removeEventListener('keydown', keydown)
-  }, [modalOpen, activeMedia.length])
+  const handleMouseMove = (event: ReactMouseEvent<HTMLDivElement>) => {
+    if (!supportsZoom) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width)
+    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height)
+    setLens({ visible: true, x, y, containerWidth: rect.width, containerHeight: rect.height })
+  }
 
   return (
     <section className="product-page page-width">
       <div className="product-gallery scroll-trigger animate--fade-in">
-        <button className="product-main-media" onClick={() => setModalOpen(true)} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} aria-label="Open product image">
+        <div
+          className="product-main-media"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setLens((value) => ({ ...value, visible: false }))}
+        >
           <Image
             src={mainSrc}
             alt={`${product.title} ${selectedColor || 'product'} view ${selected + 1}`}
             fill
             sizes="(max-width: 749px) 100vw, 50vw"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'contain' }}
             quality={85}
             priority={selected === 0}
           />
-          <span>+</span>
-        </button>
+          {lens.visible && (
+            <div
+              className="product-zoom-lens"
+              aria-hidden="true"
+              style={{
+                left: lens.x - LENS_SIZE / 2,
+                top: lens.y - LENS_SIZE / 2,
+                width: LENS_SIZE,
+                height: LENS_SIZE,
+                backgroundImage: `url(${mainSrc})`,
+                backgroundSize: `${lens.containerWidth * ZOOM}px ${lens.containerHeight * ZOOM}px`,
+                backgroundPosition: `-${lens.x * ZOOM - LENS_SIZE / 2}px -${lens.y * ZOOM - LENS_SIZE / 2}px`,
+              }}
+            />
+          )}
+        </div>
         <div className="product-thumbnails" aria-label="Product media">
           {activeMedia.map((src, index) => <button className={selected === index ? 'is-active' : ''} key={`${src}-${index}`} onClick={() => setSelected(index)} aria-label={`Show image ${index + 1} for ${selectedColor || 'product'}`}>
             <Image src={src} alt="" fill sizes="112px" style={{ objectFit: 'cover' }} quality={70} />
@@ -135,7 +169,6 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
           <strong>{nextProduct.title} →</strong>
         </Link>
       </div>
-      {modalOpen && <div className="media-modal" role="dialog" aria-modal="true" aria-label="Product media viewer"><button className="media-modal__close" onClick={() => setModalOpen(false)} aria-label="Close">x</button><button className="media-modal__prev" onClick={() => setSelected((selected - 1 + activeMedia.length) % activeMedia.length)} aria-label="Previous">&lt;</button><div className="media-modal__frame"><Image src={activeMedia[selected]} alt={`${product.title} ${selectedColor || 'product'} enlarged view`} fill sizes="90vw" style={{ objectFit: 'contain' }} quality={90} /></div><button className="media-modal__next" onClick={() => setSelected((selected + 1) % activeMedia.length)} aria-label="Next">&gt;</button></div>}
     </section>
   )
 }
