@@ -596,8 +596,13 @@ h1, h2, h3 { color: #fff; font-family: Oswald, Impact, sans-serif; letter-spacin
 .product-actions{display:grid;gap:1rem}.button--add-to-cart{width:100%;padding:1.3rem;font-weight:700;letter-spacing:.05rem}
 .product-status{display:inline-block;margin:0 0 1.5rem;padding:.4rem .9rem;border:1px solid rgba(255,255,255,.4);color:var(--muted);font-size:1.1rem;letter-spacing:.08rem;text-transform:uppercase}
 .price-pending{color:var(--muted);font-style:italic}
-.story-next{display:flex;align-items:center;justify-content:space-between;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none}
-.story-next:hover{color:rgba(255,255,255,.7)}
+.story-nav{display:flex;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.14)}
+.story-nav__link{display:flex;flex-direction:column;gap:.4rem;color:#fff;text-decoration:none;flex:1}
+.story-nav__link:hover{color:rgba(255,255,255,.7)}
+.story-nav__link--next{text-align:right;margin-left:auto}
+.story-nav__link span{font-size:1.1rem;letter-spacing:.04rem;text-transform:uppercase;opacity:.7}
+.story-nav__link strong{font-size:1.5rem}
+@media(max-width:749px){.story-nav{flex-direction:column;gap:1.5rem}.story-nav__link--next{text-align:left;margin-left:0}}
 
 /* Magnifier zoom lens on the main product image. */
 .product-main-media{overflow:hidden}

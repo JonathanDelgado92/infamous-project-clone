@@ -53,7 +53,6 @@ export const products: StoreProduct[] = [
       '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png',
       '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png',
       '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png',
-      '/images/stories/001/FE5E2ADC-051C-49DC-B7A9-A92B0C410B6F.jpeg',
       '/images/stories/001/IMG_5047.PNG',
       '/images/stories/001/photo-output.jpg',
       '/images/stories/001/EF3559EE-A9B2-498A-AD2F-5CDBFB1F26C2.png',
@@ -82,7 +81,7 @@ export const products: StoreProduct[] = [
     ],
     colors: ['Black', 'White', 'Acid Wash Gray', 'Steel'],
     colorVariants: [
-      { name: 'Black', swatch: '#171717', media: ['/images/stories/001/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/stories/001/96448C35-8F8C-4BA8-A9DB-C630B7B9B3B5.png', '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png', '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png', '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png', '/images/stories/001/FE5E2ADC-051C-49DC-B7A9-A92B0C410B6F.jpeg', '/images/stories/001/IMG_5047.PNG', '/images/stories/001/photo-output.jpg'] },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/001/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/stories/001/96448C35-8F8C-4BA8-A9DB-C630B7B9B3B5.png', '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png', '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png', '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png', '/images/stories/001/IMG_5047.PNG', '/images/stories/001/photo-output.jpg'] },
       { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/001/EF3559EE-A9B2-498A-AD2F-5CDBFB1F26C2.png', '/images/stories/001/7715701D-9327-4728-BC7B-27DDC1749863.jpg', '/images/stories/001/BBDF1752-CCD6-44B9-BDD8-96B41A2553C0.png', '/images/stories/001/31421B72-9C79-4978-8A41-93AEDF91B1AB.png', '/images/stories/001/9AF83EBE-2929-452B-821C-3266FBD5E55A.png', '/images/stories/001/E37771FD-4D85-457E-80A8-38C2A6D13EB1.png', '/images/stories/001/IMG_5039.PNG', '/images/stories/001/IMG_5044.PNG', '/images/stories/001/IMG_5045.PNG'] },
       { name: 'Acid Wash Gray', swatch: '#a6a7a7', media: ['/images/stories/001/821B0A6D-53C5-4C9D-9E7B-E43EACDCFF0D.png', '/images/stories/001/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg', '/images/stories/001/BEC2F4D6-F900-4DCF-8553-C48FF16F5416.png', '/images/stories/001/IMG_5040.PNG', '/images/stories/001/IMG_5041.PNG', '/images/stories/001/IMG_5149.PNG'], price: 30 },
       { name: 'Steel', swatch: '#577a83', media: ['/images/stories/001/7384EB4D-91F7-44E8-A56B-BF1336F6F162.jpg', '/images/stories/001/AEF75A06-AF6D-4711-A1E5-AD3F5FB2BD67.jpg', '/images/stories/001/CEEE0001-EFA7-48D4-834A-A7C5884CE9C1.jpg', '/images/stories/001/34A978F9-0808-42B0-87F6-7E9D3A000BC1.png', '/images/stories/001/54EA95E3-3503-4E18-8A98-5B8D3EB02C98.jpg', '/images/stories/001/5DD0FE54-6871-4EC6-8205-07FEDC9D8B64.png', '/images/stories/001/E3646497-A42C-4556-A5BB-D2F504CCD19B.png', '/images/stories/001/IMG_5157.JPG'] },
@@ -405,42 +404,32 @@ export const products: StoreProduct[] = [
       '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png',
       '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png',
       '/images/stories/006/IMG_4474.jpg',
-      '/images/stories/006/IMG_4474-2.jpg',
       '/images/stories/006/IMG_4479.jpg',
-      '/images/stories/006/IMG_4481.jpg',
       '/images/stories/006/IMG_4486.jpg',
       '/images/stories/006/IMG_4492.jpg',
-      '/images/stories/006/IMG_4494.jpg',
       '/images/stories/006/IMG_4551.jpg',
       '/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png',
       '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png',
       '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png',
       '/images/stories/006/IMG_4521.jpg',
       '/images/stories/006/IMG_4525.jpg',
-      '/images/stories/006/IMG_4525-2.jpg',
-      '/images/stories/006/IMG_4530.jpg',
-      '/images/stories/006/IMG_4541.jpg',
       '/images/stories/006/IMG_4542.jpg',
       '/images/stories/006/IMG_4543.jpg',
-      '/images/stories/006/IMG_4545.jpg',
       '/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png',
       '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png',
       '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png',
-      '/images/stories/006/IMG_4498.jpg',
       '/images/stories/006/IMG_4499.jpg',
       '/images/stories/006/IMG_4503.jpg',
-      '/images/stories/006/IMG_4504.jpg',
       '/images/stories/006/IMG_4507.jpg',
       '/images/stories/006/IMG_4508.jpg',
       '/images/stories/006/IMG_4516.jpg',
-      '/images/stories/006/IMG_4518.jpg',
       '/images/stories/006/IMG_4520.jpg',
     ],
     colors: ['Navy', 'Camel', 'Grey'],
     colorVariants: [
-      { name: 'Navy', swatch: '#1b2a4a', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png', '/images/stories/006/IMG_4474.jpg', '/images/stories/006/IMG_4474-2.jpg', '/images/stories/006/IMG_4479.jpg', '/images/stories/006/IMG_4481.jpg', '/images/stories/006/IMG_4486.jpg', '/images/stories/006/IMG_4492.jpg', '/images/stories/006/IMG_4494.jpg', '/images/stories/006/IMG_4551.jpg'] },
-      { name: 'Camel', swatch: '#c4a87d', media: ['/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png', '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png', '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png', '/images/stories/006/IMG_4521.jpg', '/images/stories/006/IMG_4525.jpg', '/images/stories/006/IMG_4525-2.jpg', '/images/stories/006/IMG_4530.jpg', '/images/stories/006/IMG_4541.jpg', '/images/stories/006/IMG_4542.jpg', '/images/stories/006/IMG_4543.jpg', '/images/stories/006/IMG_4545.jpg'] },
-      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png', '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png', '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png', '/images/stories/006/IMG_4498.jpg', '/images/stories/006/IMG_4499.jpg', '/images/stories/006/IMG_4503.jpg', '/images/stories/006/IMG_4504.jpg', '/images/stories/006/IMG_4507.jpg', '/images/stories/006/IMG_4508.jpg', '/images/stories/006/IMG_4516.jpg', '/images/stories/006/IMG_4518.jpg', '/images/stories/006/IMG_4520.jpg'] },
+      { name: 'Navy', swatch: '#1b2a4a', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png', '/images/stories/006/IMG_4474.jpg', '/images/stories/006/IMG_4479.jpg', '/images/stories/006/IMG_4486.jpg', '/images/stories/006/IMG_4492.jpg', '/images/stories/006/IMG_4551.jpg'] },
+      { name: 'Camel', swatch: '#c4a87d', media: ['/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png', '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png', '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png', '/images/stories/006/IMG_4521.jpg', '/images/stories/006/IMG_4525.jpg', '/images/stories/006/IMG_4542.jpg', '/images/stories/006/IMG_4543.jpg'] },
+      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png', '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png', '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png', '/images/stories/006/IMG_4499.jpg', '/images/stories/006/IMG_4503.jpg', '/images/stories/006/IMG_4507.jpg', '/images/stories/006/IMG_4508.jpg', '/images/stories/006/IMG_4516.jpg', '/images/stories/006/IMG_4520.jpg'] },
     ],
     content: {
       es: {
@@ -483,4 +472,10 @@ export function getNextProduct(slug: string): StoreProduct {
   const index = products.findIndex((product) => product.slug === slug)
   const nextIndex = index === -1 ? 0 : (index + 1) % products.length
   return products[nextIndex]
+}
+
+export function getPreviousProduct(slug: string): StoreProduct {
+  const index = products.findIndex((product) => product.slug === slug)
+  const previousIndex = index === -1 ? 0 : (index - 1 + products.length) % products.length
+  return products[previousIndex]
 }

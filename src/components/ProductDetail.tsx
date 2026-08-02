@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { StoreProduct } from '@/lib/store-data'
-import { getNextProduct } from '@/lib/store-data'
+import { getNextProduct, getPreviousProduct } from '@/lib/store-data'
 import { useEffect, useState, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { useCart } from '@/lib/cart-context'
@@ -27,6 +27,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   const { addLine } = useCart()
   const content = product.content[language]
   const nextProduct = getNextProduct(product.slug)
+  const previousProduct = getPreviousProduct(product.slug)
   const [selected, setSelected] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product.colorVariants?.[0]?.name ?? product.colors[0] ?? '')
@@ -164,10 +165,16 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
           <p>{content.whatItRepresents}</p>
         </div>
 
-        <Link className="story-next" href={`/products/${nextProduct.slug}`}>
-          <span>{strings.story.nextStory}</span>
-          <strong>{nextProduct.title} →</strong>
-        </Link>
+        <div className="story-nav">
+          <Link className="story-nav__link story-nav__link--prev" href={`/products/${previousProduct.slug}`}>
+            <span>← {strings.story.previousStory}</span>
+            <strong>{previousProduct.title}</strong>
+          </Link>
+          <Link className="story-nav__link story-nav__link--next" href={`/products/${nextProduct.slug}`}>
+            <span>{strings.story.nextStory} →</span>
+            <strong>{nextProduct.title}</strong>
+          </Link>
+        </div>
       </div>
     </section>
   )
