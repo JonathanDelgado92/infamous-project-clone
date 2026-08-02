@@ -80,12 +80,6 @@ export const dictionary = {
       placeholder: 'Correo electrónico',
       thanks: '¡Gracias por suscribirte!',
     },
-    newsletterPopup: {
-      title: 'ADELÁNTATE—OBTÉN 10% DE DESCUENTO',
-      text: 'LANZAMIENTOS LIMITADOS. ACCESO ANTICIPADO. ÚNETE A INFAMOUS PROJECT Y OBTÉN 10% EN TU PRIMERA ORDEN.',
-      thanks: 'Gracias por suscribirte.',
-      legal: 'Al registrarte, aceptas nuestros Términos de Servicio y Política de Privacidad.',
-    },
     instagram: 'SÍGUENOS EN INSTAGRAM',
     collection: {
       title: 'LAS HISTORIAS',
@@ -186,12 +180,6 @@ export const dictionary = {
       subtitle: 'Find out about new stories as soon as they drop.',
       placeholder: 'Email',
       thanks: 'Thank you for subscribing!',
-    },
-    newsletterPopup: {
-      title: 'STAY AHEAD—GET 10% OFF',
-      text: 'LIMITED RELEASES. EARLY ACCESS. JOIN INFAMOUS PROJECT AND GET 10% OFF YOUR FIRST ORDER.',
-      thanks: 'Thank you for subscribing.',
-      legal: 'By signing up for email, you agree to our Terms of Service and Privacy Policy.',
     },
     instagram: 'FOLLOW US ON INSTAGRAM',
     collection: {

@@ -5,7 +5,6 @@ import { ImageBanner } from '@/components/ImageBanner'
 import { ImageBannerTwo } from '@/components/ImageBannerTwo'
 import { ImageWithText } from '@/components/ImageWithText'
 import { MarqueeSection } from '@/components/MarqueeSection'
-import { NewsletterPopup } from '@/components/NewsletterPopup'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -26,7 +25,6 @@ export default function Home() {
         <TestimonialSlider />
         <ImageBannerTwo />
       </main>
-      <NewsletterPopup />
       <SiteFooter />
     </>
   )
