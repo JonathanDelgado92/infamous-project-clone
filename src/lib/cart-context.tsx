@@ -31,11 +31,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([])
   const [hydrated, setHydrated] = useState(false)
 
+  // Synchronizes React state from the external localStorage source on mount;
+  // starting empty keeps the client's first render matching the server-rendered HTML.
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY)
     if (stored) {
       try {
         const parsed = JSON.parse(stored)
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         if (Array.isArray(parsed)) setLines(parsed)
       } catch {
         // ignore corrupted cart data

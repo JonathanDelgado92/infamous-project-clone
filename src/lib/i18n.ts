@@ -4,7 +4,7 @@ export const languages: Language[] = ['es', 'en']
 
 export const dictionary = {
   es: {
-    nav: { home: 'Inicio', catalog: 'Catálogo', contact: 'Contacto' },
+    nav: { home: 'Inicio', catalog: 'Catálogo', project: 'El Proyecto', contact: 'Contacto' },
     story: {
       whatItRepresents: 'A qué hace referencia',
       construction: 'Confección y detalles',
@@ -23,6 +23,17 @@ export const dictionary = {
     footer: {
       quickLinks: 'ENLACES',
       whatsapp: 'Contáctanos por WhatsApp',
+      customerCare: 'ATENCIÓN AL CLIENTE',
+      sizeGuide: 'Guía de tallas',
+      shipping: 'Envíos',
+      exchanges: 'Cambios',
+      productCare: 'Cuidado de la prenda',
+      faq: 'Preguntas frecuentes',
+      instagram: 'Instagram',
+    },
+    policy: {
+      comingSoonText: 'Estamos preparando esta información. Mientras tanto, escríbenos por WhatsApp y te ayudamos directamente.',
+      contactCta: 'Contactar por WhatsApp',
     },
     cart: {
       title: 'TU CARRITO',
@@ -129,7 +140,7 @@ export const dictionary = {
     },
   },
   en: {
-    nav: { home: 'Home', catalog: 'Catalog', contact: 'Contact' },
+    nav: { home: 'Home', catalog: 'Catalog', project: 'The Project', contact: 'Contact' },
     story: {
       whatItRepresents: 'What it represents',
       construction: 'Construction and details',
@@ -148,6 +159,17 @@ export const dictionary = {
     footer: {
       quickLinks: 'QUICK LINKS',
       whatsapp: 'Contact us on WhatsApp',
+      customerCare: 'CUSTOMER CARE',
+      sizeGuide: 'Size guide',
+      shipping: 'Shipping',
+      exchanges: 'Exchanges',
+      productCare: 'Product care',
+      faq: 'FAQ',
+      instagram: 'Instagram',
+    },
+    policy: {
+      comingSoonText: "We're putting this information together. In the meantime, reach out on WhatsApp and we'll help you directly.",
+      contactCta: 'Contact us on WhatsApp',
     },
     cart: {
       title: 'YOUR CART',

@@ -14,6 +14,7 @@ export function SiteHeader() {
   const menuLinks: [string, string][] = [
     ['/', strings.nav.home],
     ['/collections/all', strings.nav.catalog],
+    ['/#founder', strings.nav.project],
     ['/pages/contact', strings.nav.contact],
   ]
   const [menuOpen, setMenuOpen] = useState(false)
