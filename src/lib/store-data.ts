@@ -137,9 +137,9 @@ export const products: StoreProduct[] = [
     primaryImage: '/images/stories/002/core-story-2.jpg',
     hoverImage: '/images/stories/002/IMG_4823.JPG',
     media: [
+      '/images/stories/002/IMG_4823.JPG',
       '/images/stories/002/core-story-2.jpg',
       '/images/stories/002/69202655-B37A-4C0B-BE0B-A96CF9FF38DE.png',
-      '/images/stories/002/IMG_4823.JPG',
       '/images/stories/002/photo-output.jpeg',
       '/images/stories/002/FC35573A-DD11-42DC-A208-709F03237203.png',
       '/images/stories/002/36B8ABAD-2113-42F3-8D3C-3D7BE699CF63.png',
@@ -279,8 +279,8 @@ export const products: StoreProduct[] = [
     hoverImage: '/images/stories/004/8C1B52DB-DE88-449F-B1FE-1F30AD2354C5.png',
     media: [
       '/images/stories/004/core-story-4.png',
-      '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
       '/images/stories/004/8C1B52DB-DE88-449F-B1FE-1F30AD2354C5.png',
+      '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
       '/images/stories/004/6DB2CC98-E09F-4E91-9606-712213EF9252.png',
     ],
     sizes: ['S', 'M', 'L', 'XL'],
