@@ -58,10 +58,10 @@ export const dictionary = {
     },
     announcement: 'EDICIONES LIMITADAS. HISTORIAS EN CADA PIEZA. INFAMOUS YA ESTÁ AQUÍ.',
     hero: {
-      subtitle: 'Streetwear para quienes se construyen en silencio y dejan que sus resultados se vuelvan imposibles de ignorar.',
-      titleLine1: 'CONSTRUIDO EN LAS SOMBRAS.',
-      titleLine2: 'DEMOSTRADO EN LA LUZ.',
-      cta: 'EXPLORA LAS HISTORIAS',
+      subtitle: 'No lanzamos ropa. Liberamos historias',
+      titleLine1: 'DESTACA.',
+      titleLine2: 'HAZTE INFAMOUS',
+      cta: 'EXPLORAR LAS HISTORIAS',
       ctaSecondary: 'ENTRA AL PROYECTO',
     },
     marquee: {
@@ -196,9 +196,9 @@ export const dictionary = {
     },
     announcement: 'LIMITED RELEASES. STORIES IN EVERY PIECE. INFAMOUS IS NOW LIVE.',
     hero: {
-      subtitle: 'Streetwear for those who build in silence and let their results become impossible to ignore.',
-      titleLine1: 'BUILT IN THE SHADOWS.',
-      titleLine2: 'PROVEN IN THE LIGHT.',
+      subtitle: 'We don\'t drop clothes. We release stories',
+      titleLine1: 'STAND OUT.',
+      titleLine2: 'STAY INFAMOUS',
       cta: 'SHOP THE STORIES',
       ctaSecondary: 'ENTER THE PROJECT',
     },
