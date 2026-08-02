@@ -2,6 +2,9 @@
 
 import { useLanguage } from '@/lib/language-context'
 
+const CLOSING_LINE_1 = 'NOT MADE FOR HYPE.'
+const CLOSING_LINE_2 = 'MADE FOR LEGACY'
+
 export function EditorialSection() {
   const { strings } = useLanguage()
   const { editorial } = strings
@@ -13,17 +16,13 @@ export function EditorialSection() {
         <br />
         {editorial.eyebrowBottom}
       </h2>
-      <p className="editorial-section__lead">
-        {editorial.leadLine1}
-        <br />
-        {editorial.leadLine2}
-      </p>
-      <p className="editorial-section__remains">{editorial.remains}</p>
-      <p className="editorial-section__body">{editorial.body}</p>
+      <span className="editorial-section__divider" aria-hidden="true" />
+      <p className="editorial-section__body">{editorial.bodyPara1}</p>
+      <p className="editorial-section__body">{editorial.bodyPara2}</p>
       <p className="editorial-section__closing">
-        {editorial.closingTop}
+        {CLOSING_LINE_1}
         <br />
-        {editorial.closingBottom}
+        {CLOSING_LINE_2}
       </p>
     </section>
   )

@@ -64,10 +64,6 @@ export const dictionary = {
     marquee: {
       secondary: ['EDICIÓN LIMITADA', '☯', 'PIEZAS CON CARÁCTER', '☯', 'ÍCONOS DEL FUTURO', '☯'],
     },
-    featured: {
-      title: 'LAS HISTORIAS',
-      description: 'CADA PIEZA NACE DE UNA IDEA, UN CAPÍTULO Y UNA MANERA DE ENFRENTAR EL MUNDO. ESTO NO ES SOLO MODA—ES UNA DECLARACIÓN.',
-    },
     founder: {
       caption: 'CONOCE AL FUNDADOR',
       title: 'LA VISIÓN DETRÁS DE INFAMOUS',
@@ -77,12 +73,8 @@ export const dictionary = {
     editorial: {
       eyebrowTop: 'ESTO NO ES UN DROP.',
       eyebrowBottom: 'ES UNA HISTORIA.',
-      leadLine1: 'Un drop aparece,',
-      leadLine2: 'genera ruido y desaparece.',
-      remains: 'Una historia permanece.',
-      body: 'En INFAMOUS PROJECT, cada pieza nace de una idea, una etapa y una manera de enfrentar el mundo. Cada mensaje, material, color, estampado y detalle de confección forma parte de la narrativa.',
-      closingTop: 'NO VESTIMOS TENDENCIAS.',
-      closingBottom: 'VESTIMOS HISTORIAS.',
+      bodyPara1: 'En INFAMOUS PROJECT, cada pieza nace de una idea, una mentalidad y un capítulo que vale la pena contar. Cada mensaje, tela, color, estampado y detalle de confección está diseñado intencionalmente para formar parte de una narrativa más grande.',
+      bodyPara2: 'Creamos para quienes se construyen en silencio, avanzan sin necesitar aprobación y llevan consigo una presencia que se vuelve imposible de ignorar.',
     },
     movement: {
       title: 'MOVIMIENTO EN FORMA',
@@ -198,10 +190,6 @@ export const dictionary = {
     marquee: {
       secondary: ['LIMITED EDITION', '☯', 'STATEMENT PIECES', '☯', 'FUTURE ICONS', '☯'],
     },
-    featured: {
-      title: 'THE STORIES',
-      description: 'EACH PIECE BEGINS WITH AN IDEA, A CHAPTER, AND A WAY OF FACING THE WORLD. THIS ISN\'T JUST FASHION—IT\'S A STATEMENT.',
-    },
     founder: {
       caption: 'MEET THE FOUNDER',
       title: 'THE VISION BEHIND INFAMOUS',
@@ -211,12 +199,8 @@ export const dictionary = {
     editorial: {
       eyebrowTop: 'THIS IS NOT A DROP.',
       eyebrowBottom: 'THIS IS A STORY.',
-      leadLine1: 'A drop appears,',
-      leadLine2: 'creates noise and disappears.',
-      remains: 'A story remains.',
-      body: 'At INFAMOUS PROJECT, every piece begins with an idea, a chapter and a way of facing the world. Every message, material, color, print and construction detail belongs to the narrative.',
-      closingTop: 'WE DO NOT WEAR TRENDS.',
-      closingBottom: 'WE WEAR STORIES.',
+      bodyPara1: 'At INFAMOUS PROJECT, every piece begins with an idea, a mindset and a chapter worth telling. Every message, fabric, color, print and construction detail is intentionally designed to become part of a larger narrative.',
+      bodyPara2: 'We create for those who build in silence, move without approval and carry themselves with a presence that becomes impossible to ignore.',
     },
     movement: {
       title: 'MOVEMENT IN FORM',
