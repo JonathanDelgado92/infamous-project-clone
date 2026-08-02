@@ -223,7 +223,7 @@ export const products: StoreProduct[] = [
     colors: ['White', 'Black'],
     colorVariants: [
       { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png', '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png', '/images/stories/003/IMG_5195.JPG', '/images/stories/003/IMG_5172.jpg', '/images/stories/003/IMG_5171.jpg', '/images/stories/003/IMG_5174.jpg'] },
-      { name: 'Black', swatch: '#171717', media: ['/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png', '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png', '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png', '/images/stories/003/IMG_5175.jpg', '/images/stories/003/IMG_5178.jpg', '/images/stories/003/IMG_5179.jpg', '/images/stories/003/IMG_5165.jpg', '/images/stories/003/IMG_5166.jpg', '/images/stories/003/IMG_5168.jpg', '/images/stories/003/IMG_5170.jpg', '/images/stories/003/IMG_5177.jpg', '/images/stories/003/069844C0-026F-4C33-925C-980CFB592F34.png'] },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/003/069844C0-026F-4C33-925C-980CFB592F34.png', '/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png', '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png', '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png', '/images/stories/003/IMG_5175.jpg', '/images/stories/003/IMG_5178.jpg', '/images/stories/003/IMG_5179.jpg', '/images/stories/003/IMG_5165.jpg', '/images/stories/003/IMG_5166.jpg', '/images/stories/003/IMG_5168.jpg', '/images/stories/003/IMG_5170.jpg', '/images/stories/003/IMG_5177.jpg'] },
     ],
     content: {
       es: {
