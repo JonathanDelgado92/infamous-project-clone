@@ -9,7 +9,7 @@ import { useLanguage } from '@/lib/language-context'
 import { buildCartWhatsAppLink } from '@/lib/whatsapp'
 
 export default function CartPage() {
-  const { strings, language } = useLanguage()
+  const { strings } = useLanguage()
   const { lines, removeLine, setQuantity, totalUnits, totalPrice } = useCart()
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -31,7 +31,7 @@ export default function CartPage() {
 
   const canSend = name.trim().length > 0 && phone.trim().length > 0 && city.trim().length > 0 && address.trim().length > 0
   const whatsappHref = canSend
-    ? buildCartWhatsAppLink(lines, language, { name, phone, city, address, reference: reference || undefined, comment: comment || undefined })
+    ? buildCartWhatsAppLink(lines, { name, phone, city, address, reference: reference || undefined, comment: comment || undefined })
     : undefined
 
   return (

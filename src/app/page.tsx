@@ -8,7 +8,6 @@ import { MarqueeSection } from '@/components/MarqueeSection'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
-import { TestimonialSlider } from '@/components/TestimonialSlider'
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
         <CoreStories />
         <EditorialSection />
         <ImageWithText />
-        <TestimonialSlider />
         <ImageBannerTwo />
       </main>
       <SiteFooter />

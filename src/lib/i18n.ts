@@ -4,7 +4,7 @@ export const languages: Language[] = ['es', 'en']
 
 export const dictionary = {
   es: {
-    nav: { home: 'Inicio', catalog: 'Catálogo', contact: 'Contacto' },
+    nav: { catalog: 'Catálogo' },
     story: {
       whatItRepresents: 'A qué hace referencia',
       construction: 'Confección y detalles',
@@ -13,8 +13,6 @@ export const dictionary = {
       color: 'Color',
       size: 'Talla',
       quantity: 'Cantidad',
-      buyWhatsapp: 'Comprar por WhatsApp',
-      askAvailability: 'Consultar disponibilidad',
       nextStory: 'Siguiente historia',
       previousStory: 'Historia anterior',
       shop: 'COMPRAR',
@@ -49,7 +47,7 @@ export const dictionary = {
       name: 'Nombre',
       phone: 'Teléfono / WhatsApp',
       city: 'Ciudad',
-      address: 'Dirección',
+      address: 'Dirección de envío',
       reference: 'Punto de referencia (opcional)',
       comment: 'Comentario (opcional)',
       requiredNote: 'Completa nombre, teléfono, ciudad y dirección para enviar tu pedido.',
@@ -69,12 +67,6 @@ export const dictionary = {
       bodyPara1: 'En INFAMOUS PROJECT, cada pieza nace de una idea, una mentalidad y un capítulo que vale la pena contar. Cada mensaje, tela, color, estampado y detalle de confección está diseñado intencionalmente para formar parte de una narrativa más grande.',
       bodyPara2: 'Creamos para quienes se construyen en silencio, avanzan sin necesitar aprobación y llevan consigo una presencia que se vuelve imposible de ignorar.',
     },
-    testimonials: {
-      title: 'LO QUE DICEN',
-      description: 'ESTILO REAL. IMPACTO REAL. INFAMOUS NO ES SOLO ROPA—ES UNA DECLARACIÓN.',
-      verified: 'Cliente verificado',
-      items: [] as readonly { quote: string; author: string }[],
-    },
     newsletter: {
       title: 'ÚNETE A INFAMOUS PROJECT',
       subtitle: 'Entérate de las nuevas historias apenas estén listas.',
@@ -92,21 +84,9 @@ export const dictionary = {
       'sold-out': 'Agotado',
       archived: 'Archivado',
     },
-    contact: {
-      title: 'CONECTA CON INFAMOUS',
-      info: 'INFORMACIÓN DE CONTACTO',
-      infoText: 'Para preguntas sobre productos, pedidos o la marca, usa el formulario y nuestro equipo te responderá.',
-      formTitle: 'FORMULARIO DE CONTACTO',
-      thanks: 'Gracias por contactarnos. Te responderemos lo antes posible.',
-      name: 'Nombre',
-      email: 'Correo electrónico',
-      phone: 'Número de teléfono',
-      comment: 'Comentario',
-      send: 'Enviar',
-    },
   },
   en: {
-    nav: { home: 'Home', catalog: 'Catalog', contact: 'Contact' },
+    nav: { catalog: 'Catalog' },
     story: {
       whatItRepresents: 'What it represents',
       construction: 'Construction and details',
@@ -115,8 +95,6 @@ export const dictionary = {
       color: 'Color',
       size: 'Size',
       quantity: 'Quantity',
-      buyWhatsapp: 'Buy through WhatsApp',
-      askAvailability: 'Ask availability',
       nextStory: 'Next story',
       previousStory: 'Previous story',
       shop: 'SHOP',
@@ -151,7 +129,7 @@ export const dictionary = {
       name: 'Name',
       phone: 'Phone / WhatsApp',
       city: 'City',
-      address: 'Address',
+      address: 'Shipping address',
       reference: 'Reference point (optional)',
       comment: 'Comment (optional)',
       requiredNote: 'Fill in name, phone, city and address to send your order.',
@@ -171,12 +149,6 @@ export const dictionary = {
       bodyPara1: 'At INFAMOUS PROJECT, every piece begins with an idea, a mindset and a chapter worth telling. Every message, fabric, color, print and construction detail is intentionally designed to become part of a larger narrative.',
       bodyPara2: 'We create for those who build in silence, move without approval and carry themselves with a presence that becomes impossible to ignore.',
     },
-    testimonials: {
-      title: 'WHAT THEY\'RE SAYING',
-      description: 'REAL STYLE. REAL IMPACT. INFAMOUS ISN\'T JUST CLOTHING—IT\'S A STATEMENT.',
-      verified: 'Verified Customer',
-      items: [] as readonly { quote: string; author: string }[],
-    },
     newsletter: {
       title: 'JOIN INFAMOUS PROJECT',
       subtitle: 'Find out about new stories as soon as they drop.',
@@ -193,18 +165,6 @@ export const dictionary = {
       'coming-soon': 'Coming soon',
       'sold-out': 'Sold out',
       archived: 'Archived',
-    },
-    contact: {
-      title: 'CONNECT WITH INFAMOUS',
-      info: 'CONTACT INFORMATION',
-      infoText: 'For questions about products, orders, or the brand, use the form and our team will get back to you.',
-      formTitle: 'CONTACT FORM',
-      thanks: 'Thanks for contacting us. We\'ll get back to you as soon as possible.',
-      name: 'Name',
-      email: 'Email',
-      phone: 'Phone number',
-      comment: 'Comment',
-      send: 'Send',
     },
   },
 } as const

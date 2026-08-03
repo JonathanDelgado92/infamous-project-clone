@@ -7,7 +7,6 @@ import { getNextProduct, getPreviousProduct } from '@/lib/store-data'
 import { useEffect, useState, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { useCart } from '@/lib/cart-context'
-import { buildWhatsAppLink } from '@/lib/whatsapp'
 
 const ZOOM = 2.2
 const LENS_SIZE = 180
@@ -149,9 +148,6 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
             <button type="button" className="button button--add-to-cart" onClick={handleAddToCart}>
               {justAdded ? strings.story.addedToCart : strings.story.addToCart}
             </button>
-            <a className="whatsapp-button" href={buildWhatsAppLink(product, selectedColor || undefined, displayPrice, language, selectedSize || undefined)} target="_blank" rel="noreferrer">
-              {strings.story.buyWhatsapp}
-            </a>
           </div>
         ) : (
           <span className="whatsapp-button whatsapp-button--disabled" aria-disabled="true">
