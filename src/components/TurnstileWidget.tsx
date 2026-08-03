@@ -8,7 +8,10 @@ const SCRIPT_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
 declare global {
   interface Window {
     turnstile?: {
-      render: (container: HTMLElement, options: { sitekey: string; callback: (token: string) => void; 'expired-callback'?: () => void }) => string
+      render: (
+        container: HTMLElement,
+        options: { sitekey: string; callback: (token: string) => void; 'expired-callback'?: () => void; theme?: 'light' | 'dark' | 'auto'; size?: 'normal' | 'flexible' | 'compact' },
+      ) => string
       reset: (widgetId?: string) => void
     }
   }
@@ -30,6 +33,8 @@ export function TurnstileWidget({ onToken }: { onToken: (token: string | null) =
         sitekey: SITE_KEY,
         callback: (token) => onToken(token),
         'expired-callback': () => onToken(null),
+        theme: 'dark',
+        size: 'flexible',
       })
     }
 
