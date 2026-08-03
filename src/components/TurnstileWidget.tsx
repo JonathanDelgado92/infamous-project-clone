@@ -10,7 +10,14 @@ declare global {
     turnstile?: {
       render: (
         container: HTMLElement,
-        options: { sitekey: string; callback: (token: string) => void; 'expired-callback'?: () => void; theme?: 'light' | 'dark' | 'auto'; size?: 'normal' | 'flexible' | 'compact' },
+        options: {
+          sitekey: string
+          callback: (token: string) => void
+          'expired-callback'?: () => void
+          theme?: 'light' | 'dark' | 'auto'
+          size?: 'normal' | 'flexible' | 'compact'
+          appearance?: 'always' | 'execute' | 'interaction-only'
+        },
       ) => string
       reset: (widgetId?: string) => void
     }
@@ -35,6 +42,7 @@ export function TurnstileWidget({ onToken }: { onToken: (token: string | null) =
         'expired-callback': () => onToken(null),
         theme: 'dark',
         size: 'flexible',
+        appearance: 'interaction-only',
       })
     }
 

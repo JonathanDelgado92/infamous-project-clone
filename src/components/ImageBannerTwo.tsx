@@ -100,8 +100,6 @@ export function ImageBannerTwo() {
               {status === 'loading' ? '···' : '→'}
             </button>
 
-            <TurnstileWidget onToken={setTurnstileToken} />
-
             <label className="newsletter-consent" htmlFor="newsletter-consent">
               <input id="newsletter-consent" name="consent" type="checkbox" required disabled={status === 'loading'} />
               <span>
@@ -112,6 +110,8 @@ export function ImageBannerTwo() {
                 {strings.newsletter.consentAfter}
               </span>
             </label>
+
+            <TurnstileWidget onToken={setTurnstileToken} />
           </form>
         )}
       </div>
