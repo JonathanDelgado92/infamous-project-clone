@@ -16,7 +16,13 @@ export const subscribeEnv = {
 }
 
 export const isBrevoConfigured = () =>
-  Boolean(subscribeEnv.brevoApiKey && subscribeEnv.brevoPendingListId && subscribeEnv.brevoDoiTemplateId && subscribeEnv.brevoConfirmationRedirectUrl)
+  Boolean(
+    subscribeEnv.brevoApiKey &&
+      subscribeEnv.brevoPendingListId &&
+      subscribeEnv.brevoConfirmedListId &&
+      subscribeEnv.brevoDoiTemplateId &&
+      subscribeEnv.brevoConfirmationRedirectUrl,
+  )
 
 export const isGoogleSheetsConfigured = () => Boolean(subscribeEnv.googleAppsScriptUrl && subscribeEnv.googleAppsScriptSecret)
 

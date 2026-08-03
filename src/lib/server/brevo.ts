@@ -51,7 +51,7 @@ async function triggerDoubleOptin(email: string, attributes: Record<string, unkn
     method: 'POST',
     body: JSON.stringify({
       email,
-      includeListIds: [Number(subscribeEnv.brevoPendingListId)],
+      includeListIds: [Number(subscribeEnv.brevoConfirmedListId)],
       templateId: Number(subscribeEnv.brevoDoiTemplateId),
       redirectionUrl: subscribeEnv.brevoConfirmationRedirectUrl,
       attributes,
