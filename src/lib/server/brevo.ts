@@ -33,7 +33,11 @@ type BrevoContact = { id: number; listIds: number[] }
 async function findExistingContact(email: string): Promise<BrevoContact | null> {
   const response = await brevoFetch(`/contacts/${encodeURIComponent(email)}`, { method: 'GET' })
   if (response.status === 404) return null
-  if (!response.ok) throw new Error(`Brevo contact lookup failed: ${response.status}`)
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '')
+    console.error('brevo contact lookup failed:', response.status, errorText)
+    throw new Error(`Brevo contact lookup failed: ${response.status}`)
+  }
   const data = await response.json()
   return { id: data.id, listIds: Array.isArray(data.listIds) ? data.listIds : [] }
 }
@@ -53,6 +57,10 @@ async function triggerDoubleOptin(email: string, attributes: Record<string, unkn
       attributes,
     }),
   })
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '')
+    console.error('brevo doubleOptinConfirmation failed:', response.status, errorText)
+  }
   return response.ok
 }
 
