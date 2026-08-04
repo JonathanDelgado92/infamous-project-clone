@@ -6,6 +6,8 @@ export type LocalizedStoryContent = {
   keywords: string[]
 }
 
+export type ProductStatus = 'available' | 'coming-soon' | 'sold-out' | 'archived'
+
 export type StoreProduct = {
   slug: string
   storyNumber: string
@@ -14,9 +16,11 @@ export type StoreProduct = {
   price: number | null
   priceLabel: string
   priceConfirmed: boolean
+  status: ProductStatus
   primaryImage: string
   hoverImage?: string
   media: string[]
+  sizes: string[]
   colors: string[]
   colorVariants?: {
     name: string
@@ -32,13 +36,14 @@ export type StoreProduct = {
 
 export const products: StoreProduct[] = [
   {
-    slug: 'every-shadow-hides-a-story',
+    slug: 'every-shadow-hides-a-history',
     storyNumber: '001',
-    title: 'EVERY SHADOW HIDES A STORY',
+    title: 'EVERY SHADOW HIDES A HISTORY',
     fabricLabel: '100% Cotton, 200 g/m²',
     price: 25,
     priceLabel: 'From $25.00 USD',
     priceConfirmed: true,
+    status: 'available',
     primaryImage: '/images/stories/001/core-story-1.png',
     hoverImage: '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png',
     media: [
@@ -49,7 +54,6 @@ export const products: StoreProduct[] = [
       '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png',
       '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png',
       '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png',
-      '/images/stories/001/FE5E2ADC-051C-49DC-B7A9-A92B0C410B6F.jpeg',
       '/images/stories/001/IMG_5047.PNG',
       '/images/stories/001/photo-output.jpg',
       '/images/stories/001/EF3559EE-A9B2-498A-AD2F-5CDBFB1F26C2.png',
@@ -76,11 +80,12 @@ export const products: StoreProduct[] = [
       '/images/stories/001/E3646497-A42C-4556-A5BB-D2F504CCD19B.png',
       '/images/stories/001/IMG_5157.JPG',
     ],
-    colors: ['Black', 'Clear', 'Acid Wash', 'Steel'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'White', 'Acid Wash Gray', 'Steel'],
     colorVariants: [
-      { name: 'Black', swatch: '#171717', media: ['/images/stories/001/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/stories/001/96448C35-8F8C-4BA8-A9DB-C630B7B9B3B5.png', '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png', '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png', '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png', '/images/stories/001/FE5E2ADC-051C-49DC-B7A9-A92B0C410B6F.jpeg', '/images/stories/001/IMG_5047.PNG', '/images/stories/001/photo-output.jpg'] },
-      { name: 'Clear', swatch: '#f2f1ea', media: ['/images/stories/001/EF3559EE-A9B2-498A-AD2F-5CDBFB1F26C2.png', '/images/stories/001/7715701D-9327-4728-BC7B-27DDC1749863.jpg', '/images/stories/001/BBDF1752-CCD6-44B9-BDD8-96B41A2553C0.png', '/images/stories/001/31421B72-9C79-4978-8A41-93AEDF91B1AB.png', '/images/stories/001/9AF83EBE-2929-452B-821C-3266FBD5E55A.png', '/images/stories/001/E37771FD-4D85-457E-80A8-38C2A6D13EB1.png', '/images/stories/001/IMG_5039.PNG', '/images/stories/001/IMG_5044.PNG', '/images/stories/001/IMG_5045.PNG'] },
-      { name: 'Acid Wash', swatch: '#a6a7a7', media: ['/images/stories/001/821B0A6D-53C5-4C9D-9E7B-E43EACDCFF0D.png', '/images/stories/001/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg', '/images/stories/001/BEC2F4D6-F900-4DCF-8553-C48FF16F5416.png', '/images/stories/001/IMG_5040.PNG', '/images/stories/001/IMG_5041.PNG', '/images/stories/001/IMG_5149.PNG'], price: 30 },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/001/386FAE83-BC50-41B9-94E5-113A22817D1C.png', '/images/stories/001/96448C35-8F8C-4BA8-A9DB-C630B7B9B3B5.png', '/images/stories/001/1A9A0344-9A78-40B6-82B9-7EF30F4AAE37.png', '/images/stories/001/0979EEC4-8D89-4F94-83C1-1543A0F57B23.png', '/images/stories/001/28F531E8-EF25-40A2-85DF-EAA22B40ECCA.png', '/images/stories/001/FDCFF670-84A9-4F86-9BAE-3F45B462C776.png', '/images/stories/001/IMG_5047.PNG', '/images/stories/001/photo-output.jpg'] },
+      { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/001/EF3559EE-A9B2-498A-AD2F-5CDBFB1F26C2.png', '/images/stories/001/7715701D-9327-4728-BC7B-27DDC1749863.jpg', '/images/stories/001/BBDF1752-CCD6-44B9-BDD8-96B41A2553C0.png', '/images/stories/001/31421B72-9C79-4978-8A41-93AEDF91B1AB.png', '/images/stories/001/9AF83EBE-2929-452B-821C-3266FBD5E55A.png', '/images/stories/001/E37771FD-4D85-457E-80A8-38C2A6D13EB1.png', '/images/stories/001/IMG_5039.PNG', '/images/stories/001/IMG_5044.PNG', '/images/stories/001/IMG_5045.PNG'] },
+      { name: 'Acid Wash Gray', swatch: '#a6a7a7', media: ['/images/stories/001/821B0A6D-53C5-4C9D-9E7B-E43EACDCFF0D.png', '/images/stories/001/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg', '/images/stories/001/BEC2F4D6-F900-4DCF-8553-C48FF16F5416.png', '/images/stories/001/IMG_5040.PNG', '/images/stories/001/IMG_5041.PNG', '/images/stories/001/IMG_5149.PNG'], price: 30 },
       { name: 'Steel', swatch: '#577a83', media: ['/images/stories/001/7384EB4D-91F7-44E8-A56B-BF1336F6F162.jpg', '/images/stories/001/AEF75A06-AF6D-4711-A1E5-AD3F5FB2BD67.jpg', '/images/stories/001/CEEE0001-EFA7-48D4-834A-A7C5884CE9C1.jpg', '/images/stories/001/34A978F9-0808-42B0-87F6-7E9D3A000BC1.png', '/images/stories/001/54EA95E3-3503-4E18-8A98-5B8D3EB02C98.jpg', '/images/stories/001/5DD0FE54-6871-4EC6-8205-07FEDC9D8B64.png', '/images/stories/001/E3646497-A42C-4556-A5BB-D2F504CCD19B.png', '/images/stories/001/IMG_5157.JPG'] },
     ],
     content: {
@@ -128,12 +133,13 @@ export const products: StoreProduct[] = [
     price: 45,
     priceLabel: '$45.00 USD',
     priceConfirmed: true,
+    status: 'available',
     primaryImage: '/images/stories/002/core-story-2.jpg',
     hoverImage: '/images/stories/002/IMG_4823.JPG',
     media: [
+      '/images/stories/002/IMG_4823.JPG',
       '/images/stories/002/core-story-2.jpg',
       '/images/stories/002/69202655-B37A-4C0B-BE0B-A96CF9FF38DE.png',
-      '/images/stories/002/IMG_4823.JPG',
       '/images/stories/002/photo-output.jpeg',
       '/images/stories/002/FC35573A-DD11-42DC-A208-709F03237203.png',
       '/images/stories/002/36B8ABAD-2113-42F3-8D3C-3D7BE699CF63.png',
@@ -144,6 +150,7 @@ export const products: StoreProduct[] = [
       '/images/stories/002/139309A9-0401-47DA-8F27-C9A91A697901.png',
       '/images/stories/002/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png',
     ],
+    sizes: ['S', 'M', 'L', 'XL'],
     colors: [],
     content: {
       es: {
@@ -192,6 +199,7 @@ export const products: StoreProduct[] = [
     price: 25,
     priceLabel: '$25.00 USD',
     priceConfirmed: true,
+    status: 'available',
     primaryImage: '/images/stories/003/core-story-3.png',
     hoverImage: '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png',
     media: [
@@ -200,19 +208,26 @@ export const products: StoreProduct[] = [
       '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png',
       '/images/stories/003/IMG_5195.JPG',
       '/images/stories/003/IMG_5172.jpg',
-      '/images/stories/003/IMG_5173.jpg',
+      '/images/stories/003/IMG_5171.jpg',
+      '/images/stories/003/IMG_5174.jpg',
       '/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png',
       '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png',
       '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png',
-      '/images/stories/003/IMG_5169.jpg',
       '/images/stories/003/IMG_5175.jpg',
       '/images/stories/003/IMG_5178.jpg',
       '/images/stories/003/IMG_5179.jpg',
+      '/images/stories/003/IMG_5165.jpg',
+      '/images/stories/003/IMG_5166.jpg',
+      '/images/stories/003/IMG_5168.jpg',
+      '/images/stories/003/IMG_5170.jpg',
+      '/images/stories/003/IMG_5177.jpg',
+      '/images/stories/003/069844C0-026F-4C33-925C-980CFB592F34.png',
     ],
+    sizes: ['XS', 'S', 'M'],
     colors: ['White', 'Black'],
     colorVariants: [
-      { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png', '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png', '/images/stories/003/IMG_5195.JPG', '/images/stories/003/IMG_5172.jpg', '/images/stories/003/IMG_5173.jpg'] },
-      { name: 'Black', swatch: '#171717', media: ['/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png', '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png', '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png', '/images/stories/003/IMG_5169.jpg', '/images/stories/003/IMG_5175.jpg', '/images/stories/003/IMG_5178.jpg', '/images/stories/003/IMG_5179.jpg'] },
+      { name: 'White', swatch: '#f2f1ea', media: ['/images/stories/003/736B14DC-D6D7-4EBD-B5C8-7F72F8937F1F.png', '/images/stories/003/96EEC23F-6C6B-4285-89EA-357D17EF8019.png', '/images/stories/003/IMG_5195.JPG', '/images/stories/003/IMG_5172.jpg', '/images/stories/003/IMG_5171.jpg', '/images/stories/003/IMG_5174.jpg'] },
+      { name: 'Black', swatch: '#171717', media: ['/images/stories/003/069844C0-026F-4C33-925C-980CFB592F34.png', '/images/stories/003/64D7FF1B-1871-4C9B-BEAA-40AEE0CF02E1.png', '/images/stories/003/6FFF7D18-9C1C-49D4-B59F-FF20A0D48637.png', '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png', '/images/stories/003/IMG_5175.jpg', '/images/stories/003/IMG_5178.jpg', '/images/stories/003/IMG_5179.jpg', '/images/stories/003/IMG_5165.jpg', '/images/stories/003/IMG_5166.jpg', '/images/stories/003/IMG_5168.jpg', '/images/stories/003/IMG_5170.jpg', '/images/stories/003/IMG_5177.jpg'] },
     ],
     content: {
       es: {
@@ -259,14 +274,16 @@ export const products: StoreProduct[] = [
     price: 20,
     priceLabel: '$20.00 USD',
     priceConfirmed: true,
+    status: 'available',
     primaryImage: '/images/stories/004/core-story-4.png',
     hoverImage: '/images/stories/004/8C1B52DB-DE88-449F-B1FE-1F30AD2354C5.png',
     media: [
       '/images/stories/004/core-story-4.png',
-      '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
       '/images/stories/004/8C1B52DB-DE88-449F-B1FE-1F30AD2354C5.png',
+      '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
       '/images/stories/004/6DB2CC98-E09F-4E91-9606-712213EF9252.png',
     ],
+    sizes: ['S', 'M', 'L', 'XL'],
     colors: [],
     content: {
       es: {
@@ -311,24 +328,35 @@ export const products: StoreProduct[] = [
     price: 15,
     priceLabel: '$15.00 USD',
     priceConfirmed: true,
+    status: 'available',
     primaryImage: '/images/stories/005/core-story-5.JPG',
-    hoverImage: '/images/stories/005/0A10DCE9-CBDB-4C86-904E-6AE5CF99059D.png',
+    hoverImage: '/images/stories/005/IMG_5228.JPG',
     media: [
       '/images/stories/005/core-story-5.JPG',
-      '/images/stories/005/D3262C92-476F-496C-B32A-64944B180115.png',
-      '/images/stories/005/0A10DCE9-CBDB-4C86-904E-6AE5CF99059D.png',
-      '/images/stories/005/EEF41790-B591-4562-933D-A37E91E3E4D6.png',
-      '/images/stories/005/2D2A25FB-F8FA-4E49-9A37-3B05EA520537.png',
-      '/images/stories/005/E2858D82-D3E8-4AC4-8CD2-F1512F72427E.png',
-      '/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png',
-      '/images/stories/005/CDEC5FFD-F663-47B8-9965-D0E7C47DF257.png',
+      '/images/stories/005/IMG_5228.JPG',
+      '/images/stories/005/IMG_5233.JPG',
+      '/images/stories/005/IMG_5256.JPG',
+      '/images/stories/005/IMG_5258.JPG',
+      '/images/stories/005/IMG_5234.JPG',
+      '/images/stories/005/IMG_5235.JPG',
+      '/images/stories/005/IMG_5252.JPG',
+      '/images/stories/005/IMG_5255.JPG',
+      '/images/stories/005/IMG_5226.JPG',
+      '/images/stories/005/IMG_5229.JPG',
+      '/images/stories/005/IMG_5251.PNG',
+      '/images/stories/005/IMG_5254.JPG',
+      '/images/stories/005/IMG_5230.JPG',
+      '/images/stories/005/IMG_5232.JPG',
+      '/images/stories/005/IMG_5253.PNG',
+      '/images/stories/005/IMG_5257.PNG',
     ],
+    sizes: ['One Size'],
     colors: ['Grey · Classic', 'Grey · Dark Label', 'Black · White Label', 'Black · Grey Label'],
     colorVariants: [
-      { name: 'Grey · Classic', swatch: '#a7a7a7', media: ['/images/stories/005/D3262C92-476F-496C-B32A-64944B180115.png'] },
-      { name: 'Grey · Dark Label', swatch: '#8a8a8a', media: ['/images/stories/005/0A10DCE9-CBDB-4C86-904E-6AE5CF99059D.png', '/images/stories/005/EEF41790-B591-4562-933D-A37E91E3E4D6.png'] },
-      { name: 'Black · White Label', swatch: '#171717', media: ['/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png', '/images/stories/005/CDEC5FFD-F663-47B8-9965-D0E7C47DF257.png'] },
-      { name: 'Black · Grey Label', swatch: '#2a2a2a', media: ['/images/stories/005/2D2A25FB-F8FA-4E49-9A37-3B05EA520537.png', '/images/stories/005/E2858D82-D3E8-4AC4-8CD2-F1512F72427E.png'] },
+      { name: 'Grey · Classic', swatch: '#a7a7a7', media: ['/images/stories/005/IMG_5228.JPG', '/images/stories/005/IMG_5233.JPG', '/images/stories/005/IMG_5256.JPG', '/images/stories/005/IMG_5258.JPG'] },
+      { name: 'Grey · Dark Label', swatch: '#8a8a8a', media: ['/images/stories/005/IMG_5234.JPG', '/images/stories/005/IMG_5235.JPG', '/images/stories/005/IMG_5252.JPG', '/images/stories/005/IMG_5255.JPG'] },
+      { name: 'Black · White Label', swatch: '#171717', media: ['/images/stories/005/IMG_5226.JPG', '/images/stories/005/IMG_5229.JPG', '/images/stories/005/IMG_5251.PNG', '/images/stories/005/IMG_5254.JPG'] },
+      { name: 'Black · Grey Label', swatch: '#2a2a2a', media: ['/images/stories/005/IMG_5230.JPG', '/images/stories/005/IMG_5232.JPG', '/images/stories/005/IMG_5253.PNG', '/images/stories/005/IMG_5257.PNG'] },
     ],
     content: {
       es: {
@@ -373,34 +401,42 @@ export const products: StoreProduct[] = [
     price: 20,
     priceLabel: '$20.00 USD',
     priceConfirmed: true,
-    primaryImage: '/images/stories/006/core-story-6.jpg',
+    status: 'available',
+    primaryImage: '/images/stories/006/IMG_4473.jpg',
     hoverImage: '/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png',
     media: [
-      '/images/stories/006/core-story-6.jpg',
+      '/images/stories/006/IMG_4473.jpg',
       '/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png',
       '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png',
       '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png',
+      '/images/stories/006/IMG_4474.jpg',
+      '/images/stories/006/IMG_4479.jpg',
+      '/images/stories/006/IMG_4486.jpg',
+      '/images/stories/006/IMG_4492.jpg',
+      '/images/stories/006/IMG_4551.jpg',
       '/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png',
       '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png',
       '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png',
+      '/images/stories/006/IMG_4521.jpg',
+      '/images/stories/006/IMG_4525.jpg',
+      '/images/stories/006/IMG_4542.jpg',
+      '/images/stories/006/IMG_4543.jpg',
       '/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png',
       '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png',
       '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png',
-      '/images/stories/006/IMG_4474.jpg',
-      '/images/stories/006/IMG_4481.jpg',
-      '/images/stories/006/IMG_4494.jpg',
-      '/images/stories/006/IMG_4525.jpg',
-      '/images/stories/006/IMG_4541.jpg',
-      '/images/stories/006/IMG_4545.jpg',
-      '/images/stories/006/IMG_4498.jpg',
-      '/images/stories/006/IMG_4504.jpg',
-      '/images/stories/006/IMG_4518.jpg',
+      '/images/stories/006/IMG_4499.jpg',
+      '/images/stories/006/IMG_4503.jpg',
+      '/images/stories/006/IMG_4507.jpg',
+      '/images/stories/006/IMG_4508.jpg',
+      '/images/stories/006/IMG_4516.jpg',
+      '/images/stories/006/IMG_4520.jpg',
     ],
+    sizes: ['One Size'],
     colors: ['Navy', 'Camel', 'Grey'],
     colorVariants: [
-      { name: 'Navy', swatch: '#1b2a4a', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png', '/images/stories/006/IMG_4474.jpg', '/images/stories/006/IMG_4481.jpg', '/images/stories/006/IMG_4494.jpg'] },
-      { name: 'Camel', swatch: '#c4a87d', media: ['/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png', '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png', '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png', '/images/stories/006/IMG_4525.jpg', '/images/stories/006/IMG_4541.jpg', '/images/stories/006/IMG_4545.jpg'] },
-      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png', '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png', '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png', '/images/stories/006/IMG_4498.jpg', '/images/stories/006/IMG_4504.jpg', '/images/stories/006/IMG_4518.jpg'] },
+      { name: 'Navy', swatch: '#1b2a4a', media: ['/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png', '/images/stories/006/876B86CC-EDE7-48AE-80C1-7FFA6B502D86.png', '/images/stories/006/C2333160-D518-4B4D-8E4D-631AB52648B3.png', '/images/stories/006/IMG_4474.jpg', '/images/stories/006/IMG_4479.jpg', '/images/stories/006/IMG_4486.jpg', '/images/stories/006/IMG_4492.jpg', '/images/stories/006/IMG_4551.jpg'] },
+      { name: 'Camel', swatch: '#c4a87d', media: ['/images/stories/006/2AD91BCD-580C-42E3-B768-493D4327F7F2.png', '/images/stories/006/8667AB6A-D044-4DF0-93BC-025FDC7A75EE.png', '/images/stories/006/CC060CBF-25E9-43BC-BCAA-847CF734AAD9.png', '/images/stories/006/IMG_4521.jpg', '/images/stories/006/IMG_4525.jpg', '/images/stories/006/IMG_4542.jpg', '/images/stories/006/IMG_4543.jpg'] },
+      { name: 'Grey', swatch: '#a7a7a7', media: ['/images/stories/006/11497762-D19D-4DD7-92AD-77859F5C8C01.png', '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png', '/images/stories/006/E374CD9F-880A-4047-B5C4-2C73C18F28CB.png', '/images/stories/006/IMG_4499.jpg', '/images/stories/006/IMG_4503.jpg', '/images/stories/006/IMG_4507.jpg', '/images/stories/006/IMG_4508.jpg', '/images/stories/006/IMG_4516.jpg', '/images/stories/006/IMG_4520.jpg'] },
     ],
     content: {
       es: {
@@ -439,23 +475,14 @@ export const products: StoreProduct[] = [
   },
 ]
 
-export const referenceImages = [
-  '/images/story/E5911F41-E44A-4941-8840-F944E3A6CE76.png',
-  '/images/stories/002/69202655-B37A-4C0B-BE0B-A96CF9FF38DE.png',
-  '/images/stories/003/B62D3053-C537-4DCC-AC86-353259CD742E.png',
-  '/images/story/5B3FF8DD-5516-4124-9E50-598F422FF339.jpg',
-  '/images/stories/005/4551CDA5-83C1-4186-98D4-C0B645ECAA53.png',
-  '/images/stories/006/176AED32-290B-47D7-9E0C-A0AE62204F39.png',
-  '/images/story/AEF75A06-AF6D-4711-A1E5-AD3F5FB2BD67.jpg',
-  '/images/stories/004/50222BC0-0CF5-4462-A8A9-98530CBC3850.png',
-  '/images/stories/006/E26C1E51-E4AE-4117-AF1E-99F4BDDC3C36.png',
-  '/images/stories/002/441321A6-97CB-44AD-91E2-C546ED192431.jpg',
-  '/images/story/7715701D-9327-4728-BC7B-27DDC1749863.jpg',
-  '/images/stories/005/9F9D7CB8-192F-4600-AAEE-4D9C1D67CB84.png',
-]
-
 export function getNextProduct(slug: string): StoreProduct {
   const index = products.findIndex((product) => product.slug === slug)
   const nextIndex = index === -1 ? 0 : (index + 1) % products.length
   return products[nextIndex]
+}
+
+export function getPreviousProduct(slug: string): StoreProduct {
+  const index = products.findIndex((product) => product.slug === slug)
+  const previousIndex = index === -1 ? 0 : (index - 1 + products.length) % products.length
+  return products[previousIndex]
 }

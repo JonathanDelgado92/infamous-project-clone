@@ -1,28 +1,42 @@
 'use client'
 
+import Image from 'next/image'
 import { useLanguage } from '@/lib/language-context'
 
 export function ImageWithText() {
   const { strings } = useLanguage()
 
   return (
-    <div className="shopify-section section">
+    <div className="section" id="founder">
       <div className="gradient color-scheme-2" style={{ padding: '36px 0' }}>
         <div className="page-width content-shell">
           <div className="scroll-trigger animate--slide-in image-with-text image-with-text--no-overlap isolate" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div
-              className="image-with-text__media image-with-text__media--adapt global-media-settings background-transparent"
+              className="image-with-text__media image-with-text__media--adapt global-media-settings founder-logo"
               style={{
                 aspectRatio: '980 / 700',
                 width: '100%',
                 borderRadius: '0',
                 overflow: 'hidden',
+                position: 'relative',
               }}
             >
-              <img
-                src="/images/story/E3646497-A42C-4556-A5BB-D2F504CCD19B.jpg"
-                alt="Founder"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              <Image
+                src="/images/founder-logo-white.png"
+                alt="Infamous Project"
+                fill
+                sizes="(max-width: 749px) 100vw, 50vw"
+                className="founder-logo__img founder-logo__img--white"
+                style={{ objectFit: 'contain', padding: '4rem' }}
+              />
+              <Image
+                src="/images/founder-logo-black.png"
+                alt=""
+                fill
+                sizes="(max-width: 749px) 100vw, 50vw"
+                className="founder-logo__img founder-logo__img--black"
+                style={{ objectFit: 'contain', padding: '4rem' }}
+                aria-hidden="true"
               />
             </div>
             <div
@@ -38,12 +52,6 @@ export function ImageWithText() {
               <div className="image-with-text__text rte body" style={{ fontSize: '1.6rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)', margin: '1rem 0 2rem' }}>
                 <p>{strings.founder.text}</p>
               </div>
-              <a
-                href="/pages/about"
-                className="button button--secondary"
-              >
-                {strings.founder.cta}
-              </a>
             </div>
           </div>
         </div>

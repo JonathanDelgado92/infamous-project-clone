@@ -14,15 +14,16 @@ export function CoreStories() {
       <div className="core-stories__grid">
         {products.map((product) => {
           const content = product.content[language]
+          const isLowResCover = product.slug === 'every-shadow-hides-a-history'
           return (
-            <article className="core-story" key={product.slug}>
+            <article className={isLowResCover ? 'core-story core-story--soft-cover' : 'core-story'} key={product.slug}>
               <Image
                 src={product.primaryImage}
                 alt=""
                 fill
                 sizes="(max-width: 749px) 100vw, (max-width: 989px) 50vw, 25vw"
-                style={{ objectFit: 'cover', objectPosition: 'top' }}
-                quality={78}
+                style={{ objectFit: 'cover', objectPosition: isLowResCover ? 'center' : 'top' }}
+                quality={isLowResCover ? 90 : 78}
               />
               <div className="core-story__shade" />
               <p className="core-story__eyebrow">{language === 'es' ? 'HISTORIA' : 'STORY'} {product.storyNumber}</p>
